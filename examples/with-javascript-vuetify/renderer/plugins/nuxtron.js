@@ -4,13 +4,15 @@ function VueNuxtron() {}
 
 VueNuxtron.install = function (Vue, options) {
   Vue.prototype.resolve = function(pathname) {
-    if (process.env.NODE_ENV === 'production') {
-      if (/\.(png|jpe?g|gif|svg|js|css)(\?.*)?$/.test(pathname)) {
-        return `../${pathname}`
-      }
-      return `../${pathname}/index.html`
+    var isProd = process.env.NODE_ENV === 'production'
+    if (/\.(png|jpe?g|gif|svg)(\?.*)?$/.test(pathname)) {
+      const img = pathname.replace('static/', '')
+      return isProd ? `../${img}` : '/' + img
+    } else if (/\.(js|css)(\?.*)?$/.test(pathname)) {
+      return isProd ? `../${pathname}` : '/' + pathname
+    } else {
+      return isProd ? `../${pathname}/index.html` : '/' + pathname
     }
-    return '/' + pathname
   }
 }
 

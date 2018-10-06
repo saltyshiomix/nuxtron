@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-carousel>
-      <v-carousel-item v-for="(src, i) in images" :key="i" :src="src" />
+      <v-carousel-item v-for="(src, i) in images" :key="i" :src="resolve(src)" />
     </v-carousel>
   </div>
 </template>
@@ -10,10 +10,10 @@
 export default {
   data: () => ({
     images: [
-      'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-      'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-      'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-      'https://cdn.vuetifyjs.com/images/carousel/planet.jpg'
+      'static/squirrel.jpg',
+      'static/sky.jpg',
+      'static/bird.jpg',
+      'static/planet.jpg'
     ]
   })
 }
