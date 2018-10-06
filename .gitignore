@@ -59,3 +59,9 @@ typings/
 
 # next.js build output
 .next
+
+# nuxtron
+.DS_Store
+.nuxt
+dist
+workspace
