@@ -1,0 +1,32 @@
+{
+  "private": true,
+  "name": "with-javascript-vuetify",
+  "description": "My application description",
+  "version": "1.0.0",
+  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "main": "app/background.js",
+  "build": {
+    "appId": "com.example.nuxtron",
+    "productName": "My Nuxtron App",
+    "copyright": "Copyright © ${year} ${author}",
+    "directories": {
+      "output": "dist",
+      "buildResources": "resources"
+    },
+    "publish": null
+  },
+  "scripts": {
+    "dev": "nuxtron",
+    "build": "nuxtron build"
+  },
+  "dependencies": {
+    "nuxtron": "latest",
+    "vuetify": "latest"
+  },
+  "devDependencies": {
+    "electron": "3.0.2",
+    "electron-builder": "20.28.4",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1"
+  }
+}
