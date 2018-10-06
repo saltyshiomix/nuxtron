@@ -6,6 +6,10 @@
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/saltyshiomix/nuxtron",
+  "bugs": {
+    "url": "https://github.com/saltyshiomix/nuxtron/issues",
+    "email": "shiono.yoshihide@gmail.com"
+  },
   "keywords": [
     "electron",
     "nuxt",
@@ -16,10 +20,12 @@
     "vue.js",
     "nuxtron"
   ],
-  "bugs": {
-    "url": "https://github.com/saltyshiomix/nuxtron/issues",
-    "email": "shiono.yoshihide@gmail.com"
-  },
+  "files": [
+    "bin",
+    "build",
+    "dist",
+    "examples"
+  ],
   "main": "dist/index.js",
   "bin": {
     "nuxtron": "bin/nuxtron"
