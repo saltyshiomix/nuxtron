@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+const { resolve } = require('path')
 const arg = require('arg')
 const chalk = require('chalk')
 const delay = require('delay')
