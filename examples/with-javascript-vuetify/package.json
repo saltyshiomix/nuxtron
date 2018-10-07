@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "nuxtron": "latest",
-    "vuetify": "latest"
+    "vuetify": "1.2.6"
   },
   "devDependencies": {
     "electron": "3.0.2",
