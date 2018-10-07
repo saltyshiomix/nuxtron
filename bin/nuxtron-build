@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
+const { copy, remove, readFileSync, writeFileSync } = require('fs-extra')
 const { sep, join } = require('path')
 const arg = require('arg')
-const { copy, remove, readFileSync, writeFileSync } = require('fs-extra')
+const chalk = require('chalk')
 const fg = require('fast-glob')
 const spawn = require('cross-spawn')
 const spinner = require('./spinner')

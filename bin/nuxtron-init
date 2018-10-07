@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
+const { existsSync, copy, readJSON, writeJSON } = require('fs-extra')
 const { resolve } = require('path')
-const { existsSync } = require('fs')
-const { copy, readJSON, writeJSON } = require('fs-extra')
-const chalk = require('chalk')
 const arg = require('arg')
+const chalk = require('chalk')
 const spinner = require('./spinner')
 
 const args = arg({
