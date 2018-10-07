@@ -77,7 +77,7 @@ async function build(args) {
     await remove(outdir)
     const pages = fg.sync(join(appdir, '**/*.html'))
     pages.forEach(page => {
-      writeFileSync(page, resolveExportedPaths(readFileSync(page).toString()))
+      writeFileSync(page, resolveExportedPaths(page))
     })
 
     spinner.create('Building main process')
@@ -94,8 +94,12 @@ async function build(args) {
   }
 }
 
-function resolveExportedPaths(content) {
-  return content.replace(/"\/_nuxt\//g, '"../_nuxt/').replace(/"\/_error\//g, '"../_error/')
+function resolveExportedPaths(page) {
+  const content = readFileSync(page).toString()
+  if (0 < page.indexOf('200.html')) {
+    return content.replace(/"\/_nuxt\//g, '"./_nuxt/')
+  }
+  return content.replace(/"\/_nuxt\//g, '"../_nuxt/')
 }
 
 function createBuilderArgs(args) {
