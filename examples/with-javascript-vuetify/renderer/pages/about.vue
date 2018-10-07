@@ -1,19 +1,28 @@
 <template>
-  <div>
-    <v-carousel>
-      <v-carousel-item v-for="(src, i) in images" :key="i" :src="resolve(src)" />
-    </v-carousel>
-  </div>
+  <v-layout row>
+    <v-flex xs12 sm6 offset-sm3>
+      <v-card v-for="(card, i) in cards" :key="i" style="margin-bottom: 16px;">
+        <v-img :src="resolve(card.img)" height="200px"></v-img>
+
+        <v-card-title primary-title>
+          <div>
+            <div class="headline" v-text="card.title"></div>
+            <span class="grey--text" v-text="card.subtitle"></span>
+          </div>
+        </v-card-title>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
 export default {
   data: () => ({
-    images: [
-      'static/squirrel.jpg',
-      'static/sky.jpg',
-      'static/bird.jpg',
-      'static/planet.jpg'
+    cards: [
+      { img: 'static/squirrel.jpg', title: 'Squirrel', subtitle: '1,000 miles of wonder' },
+      { img: 'static/sky.jpg', title: 'Sky', subtitle: '1,000 miles of wonder' },
+      { img: 'static/bird.jpg', title: 'Bird', subtitle: '1,000 miles of wonder' },
+      { img: 'static/planet.jpg', title: 'Planet', subtitle: '1,000 miles of wonder' }
     ]
   })
 }
