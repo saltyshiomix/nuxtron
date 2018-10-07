@@ -43,7 +43,7 @@ $ nuxtron init <MY-APP>
 
 You can use `examples/*` apps as a template.
 
-To create the `examples/with-typescript-material-ui` app, run the command below:
+To create the `examples/with-vuetify` app, run the command below:
 
 ```bash
 $ nuxtron init <MY-APP> --template with-vuetify
