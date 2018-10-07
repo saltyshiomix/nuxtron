@@ -2,7 +2,7 @@
   <div class="container">
     <img :src="resolve('static/nuxt.png')">
     <h2>Hello World.</h2>
-    <p><nuxt-link :to="resolve('about')">About</nuxt-link></p>
+    <p><a :href="resolve('about')">About</a></p>
   </div>
 </template>
 
