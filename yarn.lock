@@ -4474,10 +4474,10 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-edge@^2.1.0-25645721.232bc01:
-  version "2.1.0-25645721.232bc01"
-  resolved "https://registry.yarnpkg.com/nuxt-edge/-/nuxt-edge-2.1.0-25645721.232bc01.tgz#6eade093136dc43d41c9bd4755ef33210ba6b097"
-  integrity sha512-1423/qf7TQT23i+5T1GgCJ28TuadFHIFYM8KHFEmMspXToyuBOwUCEmIj9ivEXzENrIILQbqZdhLxrVXZpbXYg==
+nuxt-edge@^2.1.0-25647522.fb8a329:
+  version "2.1.0-25647522.fb8a329"
+  resolved "https://registry.yarnpkg.com/nuxt-edge/-/nuxt-edge-2.1.0-25647522.fb8a329.tgz#e0efbebeb0d80f3539f0dfe4a487206f2f3cd504"
+  integrity sha512-wCoQacXYIlqt6qR/VvlQb2j4I/VBukZH1JAYWOJG5iA+GZFZI8uAr5rjw4PvptTIb9Rn7NbttF8dg2LTXJMXXw==
   dependencies:
     "@babel/core" "^7.1.2"
     "@babel/polyfill" "^7.0.0"

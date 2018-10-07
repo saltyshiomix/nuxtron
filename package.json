@@ -46,7 +46,7 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "fs-extra": "^7.0.0",
     "fs-jetpack": "^2.1.1",
-    "nuxt-edge": "^2.1.0-25645721.232bc01",
+    "nuxt-edge": "^2.1.0-25647522.fb8a329",
     "ora": "^3.0.0",
     "webpack": "^4.20.2",
     "webpack-merge": "^4.1.4"
