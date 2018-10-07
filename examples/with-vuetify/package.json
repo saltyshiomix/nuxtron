@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "with-javascript-vuetify",
+  "name": "with-vuetify",
   "description": "My application description",
   "version": "1.0.0",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "nuxtron": "latest",
-    "vuetify": "latest"
+    "vuetify": "1.2.6"
   },
   "devDependencies": {
     "electron": "3.0.2",
