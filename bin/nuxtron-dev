@@ -3,10 +3,6 @@
 const { resolve } = require('path')
 const arg = require('arg')
 const chalk = require('chalk')
-const delay = require('delay')
-const webpack = require('webpack')
-const spawn = require('cross-spawn')
-const config = require('../build/webpack.main.config')
 
 const args = arg({
   '--help': Boolean,
@@ -39,6 +35,10 @@ if (args['--help']) {
 }
 
 async function dev() {
+  const delay = require('delay')
+  const spawn = require('cross-spawn')
+  const webpack = require('webpack')
+  const config = require('../build/webpack.main.config')
   const cwd = process.cwd()
 
   const startRendererProcess = () => {
