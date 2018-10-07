@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 const { sep, join } = require('path')
 const arg = require('arg')
 const { copy, remove, readFileSync, writeFileSync } = require('fs-extra')

@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 const { resolve } = require('path')
 const { existsSync } = require('fs')
 const { copy, readJSON, writeJSON } = require('fs-extra')
