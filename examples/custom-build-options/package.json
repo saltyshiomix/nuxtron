@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "name": "custom-build-options",
+  "description": "My application description",
+  "version": "1.0.0",
+  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "main": "app/background.js",
+  "build": {
+    "appId": "com.example.nuxtron",
+    "productName": "My Nuxtron App",
+    "copyright": "Copyright © ${year} ${author}",
+    "directories": {
+      "output": "dist",
+      "buildResources": "resources"
+    },
+    "publish": null
+  },
+  "scripts": {
+    "dev": "nuxtron",
+    "build": "nuxtron build",
+    "build:all": "nuxtron build --all",
+    "build:win": "nuxtron build --win --ia32",
+    "build:mac": "nuxtron build --mac --x64",
+    "build:linux": "nuxtron build --linux"
+  },
+  "dependencies": {
+    "nuxtron": "latest"
+  },
+  "devDependencies": {
+    "electron": "3.0.2",
+    "electron-builder": "20.28.4"
+  }
+}
