@@ -2,8 +2,7 @@
   <v-layout row>
     <v-flex xs12 sm6 offset-sm3>
       <v-card v-for="(card, i) in cards" :key="i" style="margin-bottom: 16px;">
-        <v-img :src="resolve(card.img)" height="200px"></v-img>
-
+        <img :src="resolve(card.img)" width="100%"></img>
         <v-card-title primary-title>
           <div>
             <div class="headline" v-text="card.title"></div>
