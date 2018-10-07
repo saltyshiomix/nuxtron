@@ -1,6 +1,6 @@
 {
   "name": "nuxtron",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Build an Electron + Nuxt.js app for speed ⚡",
   "repository": "git@github.com:saltyshiomix/nuxtron.git",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
