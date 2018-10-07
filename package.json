@@ -28,7 +28,7 @@
   ],
   "main": "dist/index.js",
   "bin": {
-    "nuxtron": "bin/nuxtron"
+    "nuxtron": "bin/nuxtron.js"
   },
   "scripts": {
     "clean": "rimraf dist workspace",
