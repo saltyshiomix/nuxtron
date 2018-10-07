@@ -1,9 +1,9 @@
-# with-javascript-vuetify
+# with-vuetify
 
 ## Usage
 
 ```bash
-$ nuxtron init my-app --template with-javascript-vuetify
+$ nuxtron init my-app --template with-vuetify
 
 $ cd my-app
 
