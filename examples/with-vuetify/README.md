@@ -1,4 +1,4 @@
-# with-vuetify
+<p align="center"><img src="https://i.imgur.com/wD2bDbX.png"></p>
 
 ## Usage
 
