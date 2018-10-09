@@ -143,7 +143,7 @@ $ nuxtron init my-app --template with-vuetify
 $ git clone https://github.com/saltyshiomix/nuxtron
 $ cd nuxtron
 $ yarn
-$ yarn dev # default is examples/with-javascript
+$ yarn dev # default is examples/with-vuetify
 ```
 
 ### Developing `examples/*`
