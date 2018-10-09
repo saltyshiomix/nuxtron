@@ -143,6 +143,14 @@ $ nuxtron init my-app --template with-vuetify
 
 <p align="center"><img src="https://i.imgur.com/wD2bDbX.png"></p>
 
+### [examples/with-vuikit](./examples/with-vuikit)
+
+```bash
+$ nuxtron init my-app --template with-vuikit
+```
+
+<p align="center"><img src="https://i.imgur.com/0NabUpW.png"></p>
+
 ## Develop
 
 ### Basic
