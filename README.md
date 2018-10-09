@@ -127,6 +127,14 @@ $ nuxtron init my-app --template custom-build-options
 
 <p align="center"><img src="https://i.imgur.com/Nt6SNJb.png"></p>
 
+### [examples/with-element-ui](./examples/with-element-ui)
+
+```bash
+$ nuxtron init my-app --template with-element-ui
+```
+
+<p align="center"><img src="https://i.imgur.com/v4KlImB.png"></p>
+
 ### [examples/with-vuetify](./examples/with-vuetify)
 
 ```bash
