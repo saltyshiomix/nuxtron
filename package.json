@@ -1,6 +1,6 @@
 {
   "name": "nuxtron",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Build an Electron + Nuxt.js app for speed ⚡",
   "repository": "git@github.com:saltyshiomix/nuxtron.git",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
@@ -47,7 +47,7 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "fs-extra": "^7.0.0",
     "fs-jetpack": "^2.1.1",
-    "nuxt-edge": "^2.1.0-25647522.fb8a329",
+    "nuxt-edge": "^2.1.0-25651471.963b4dd",
     "ora": "^3.0.0",
     "webpack": "^4.20.2",
     "webpack-merge": "^4.1.4"

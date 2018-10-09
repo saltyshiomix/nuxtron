@@ -1606,6 +1606,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000884, caniuse-lite@^1.0.30000888, can
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000889.tgz#53e266c83e725ad3bd2e4a3ea76d5031a8aa4c3e"
   integrity sha512-MFxcQ6x/LEEoaIhO7Zdb7Eg8YyNONN+WBnS5ERJ0li2yRw51+i4xXUNxnLaveTb/4ZoJqsWKEmlomhG2pYzlQA==
 
+caniuse-lite@^1.0.30000890:
+  version "1.0.30000890"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000890.tgz#86a18ffcc65d79ec6a437e985761b8bf1c4efeaf"
+  integrity sha512-4NI3s4Y6ROm+SgZN5sLUG4k7nVWQnedis3c/RWkynV5G6cHSY7+a8fwFyn2yoBDE3E6VswhTNNwR3PvzGqlTkg==
+
 caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
@@ -2262,10 +2267,10 @@ debug@^3.0.0, debug@^3.1.0:
   dependencies:
     ms "^2.1.1"
 
-debug@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-4.0.1.tgz#f9bb36d439b8d1f0dd52d8fb6b46e4ebb8c1cd5b"
-  integrity sha512-K23FHJ/Mt404FSlp6gSZCevIbTMLX0j3fmHhUEhQ3Wq0FMODW3+cUSoLdy1Gx4polAf4t/lphhmHH35BB8cLYw==
+debug@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.0.tgz#373687bffa678b38b1cd91f861b63850035ddc87"
+  integrity sha512-heNPJUJIqC+xB6ayLAMHaIrmN9HKa7aQO8MGqKpvCA+uJYVcvR6l5kgdrhRuwPFHU7P5/A1w0BjByPHwpfTDKg==
   dependencies:
     ms "^2.1.1"
 
@@ -4474,10 +4479,10 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-edge@^2.1.0-25647522.fb8a329:
-  version "2.1.0-25647522.fb8a329"
-  resolved "https://registry.yarnpkg.com/nuxt-edge/-/nuxt-edge-2.1.0-25647522.fb8a329.tgz#e0efbebeb0d80f3539f0dfe4a487206f2f3cd504"
-  integrity sha512-wCoQacXYIlqt6qR/VvlQb2j4I/VBukZH1JAYWOJG5iA+GZFZI8uAr5rjw4PvptTIb9Rn7NbttF8dg2LTXJMXXw==
+nuxt-edge@^2.1.0-25651471.963b4dd:
+  version "2.1.0-25651471.963b4dd"
+  resolved "https://registry.yarnpkg.com/nuxt-edge/-/nuxt-edge-2.1.0-25651471.963b4dd.tgz#9abe02461f56388308a26355bcb6499c372c8c06"
+  integrity sha512-16VmNkU4bkTeno5zeriNxdt62ndmhO5xCAJnGyp2/zu78JjA3GGom8MafNJD8VwNVt5zsj67pgOjP6+xHvrHxw==
   dependencies:
     "@babel/core" "^7.1.2"
     "@babel/polyfill" "^7.0.0"
@@ -4487,7 +4492,7 @@ nuxt-edge@^2.1.0-25647522.fb8a329:
     "@nuxtjs/youch" "^4.2.3"
     babel-loader "^8.0.4"
     cache-loader "^1.2.2"
-    caniuse-lite "^1.0.30000889"
+    caniuse-lite "^1.0.30000890"
     chalk "^2.4.1"
     chokidar "^2.0.4"
     compression "^1.7.3"
@@ -4495,7 +4500,7 @@ nuxt-edge@^2.1.0-25647522.fb8a329:
     consola "^1.4.3"
     css-loader "^1.0.0"
     cssnano "^4.1.4"
-    debug "^4.0.1"
+    debug "^4.1.0"
     devalue "^1.0.4"
     esm "^3.0.84"
     etag "^1.8.1"
@@ -4543,7 +4548,7 @@ nuxt-edge@^2.1.0-25647522.fb8a329:
     webpack "^4.20.2"
     webpack-bundle-analyzer "^3.0.2"
     webpack-dev-middleware "^3.4.0"
-    webpack-hot-middleware "^2.24.2"
+    webpack-hot-middleware "^2.24.3"
     webpack-node-externals "^1.7.2"
     webpackbar "^2.6.3"
 
@@ -7112,10 +7117,10 @@ webpack-dev-middleware@^3.4.0:
     range-parser "^1.0.3"
     webpack-log "^2.0.0"
 
-webpack-hot-middleware@^2.24.2:
-  version "2.24.2"
-  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.24.2.tgz#0d2deeb813f67693e2997b87c3a9d9be324575dd"
-  integrity sha512-VsBGNMC5JDnab5hbReMjmIYtnvDMT+odLSP49EbLZHwuAoJJDNOi0YLhTe40vvP7u7Be+Ww1mYHjwwelqdnaKA==
+webpack-hot-middleware@^2.24.3:
+  version "2.24.3"
+  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.24.3.tgz#5bb76259a8fc0d97463ab517640ba91d3382d4a6"
+  integrity sha512-pPlmcdoR2Fn6UhYjAhp1g/IJy1Yc9hD+T6O9mjRcWV2pFbBjIFoJXhP0CoD0xPOhWJuWXuZXGBga9ybbOdzXpg==
   dependencies:
     ansi-html "0.0.7"
     html-entities "^1.2.0"
