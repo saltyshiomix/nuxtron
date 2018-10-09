@@ -119,6 +119,30 @@ See [examples](./examples) folder for more information.
 
 Or you can start the example app by `nuxtron init <app-name> --template <example-dirname>`.
 
+### [examples/custom-build-options](./examples/custom-build-options)
+
+```bash
+$ nuxtron init my-app --template custom-build-options
+```
+
+<p align="center"><img src="https://i.imgur.com/Nt6SNJb.png"></p>
+
+### [examples/with-element-ui](./examples/with-element-ui)
+
+```bash
+$ nuxtron init my-app --template with-element-ui
+```
+
+<p align="center"><img src="https://i.imgur.com/v4KlImB.png"></p>
+
+### [examples/with-vuetify](./examples/with-vuetify)
+
+```bash
+$ nuxtron init my-app --template with-vuetify
+```
+
+<p align="center"><img src="https://i.imgur.com/wD2bDbX.png"></p>
+
 ## Develop
 
 ### Basic
@@ -127,7 +151,7 @@ Or you can start the example app by `nuxtron init <app-name> --template <example
 $ git clone https://github.com/saltyshiomix/nuxtron
 $ cd nuxtron
 $ yarn
-$ yarn dev # default is examples/with-javascript
+$ yarn dev # default is examples/with-vuetify
 ```
 
 ### Developing `examples/*`
