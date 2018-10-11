@@ -167,3 +167,7 @@ $ yarn dev # default is examples/with-vuetify
 ```bash
 $ yarn dev <EXAMPLE-FOLDER-NAME>
 ```
+
+## Related
+
+- [saltyshiomix/nextron](https://github.com/saltyshiomix/nextron) - ⚡ Electron + Next.js ⚡
