@@ -4,8 +4,14 @@ const ora = require('ora')
 const chalk = require('chalk')
 
 const cache = {}
+const isTTY = process.env.CI ? false : process.stdout.isTTY
 
 function create(text) {
+  if (!isTTY) {
+    console.log(chalk`{cyan [nextron]} ${text}`)
+    return
+  }
+
   const { spinner } = cache
   if (spinner) {
     spinner.succeed()
@@ -19,6 +25,11 @@ function create(text) {
 }
 
 function clear(message, isError) {
+  if (!isTTY) {
+    console.log(chalk`{cyan [nextron]} ${message}`)
+    return
+  }
+
   const { spinner } = cache
   if (spinner) {
     (isError ? spinner.fail() : spinner.succeed())
