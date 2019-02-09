@@ -19,7 +19,7 @@ if (args['--version']) {
 
 if (args['--help']) {
   console.log(chalk`
-    {bold.cyan nuxtron dev} - Starts the nextron application in development mode
+    {bold.cyan nuxtron dev} - Starts the nuxtron application in development mode
 
     {bold USAGE}
 
