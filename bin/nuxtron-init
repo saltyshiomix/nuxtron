@@ -33,8 +33,8 @@ if (args['--help'] || (!args._[0])) {
 
     {bold OPTIONS}
 
-      --help, -h                          shows this help message
-      --version, -v                       displays the current version of nuxtron
+      --help,     -h                      shows this help message
+      --version,  -v                      displays the current version of nuxtron
       --template, -t {underline example_folder_name}  sets the example as a template
   `)
   process.exit(0)
@@ -45,14 +45,12 @@ async function pm() {
   const { exec: defaultExec } = require('child_process')
 
   let pm = 'yarn'
-
   const cwd = process.cwd()
   const exec = promisify(defaultExec)
   try {
     await exec(`${pm} -v`, { cwd })
   } catch (_) {
     pm = 'npm'
-
     try {
       await exec(`${pm} -v`, { cwd })
     } catch (_) {
@@ -68,7 +66,7 @@ async function pm() {
   return pm
 }
 
-const template = args['--template'] || 'with-vuetify'
+const template = args['--template'] || 'with-javascript-material-ui'
 if (!existsSync(resolve(__dirname, `../examples/${template}`))) {
   console.log(chalk.red(`Not found examples/${template}`))
   process.exit(1)
@@ -78,16 +76,15 @@ async function init(name) {
   const cwd = process.cwd()
 
   spinner.create('Copy template')
+  const ext = existsSync(resolve(__dirname, `../examples/${template}/tsconfig.json`)) ? 'ts' : 'js'
+  await copy(resolve(__dirname, `../examples/_template/gitignore.txt`), resolve(cwd, `${name}/.gitignore`))
+  await copy(resolve(__dirname, `../examples/_template/${ext}`), resolve(cwd, name))
   await copy(resolve(__dirname, `../examples/${template}`), resolve(cwd, name))
 
   spinner.create('Set meta information')
   const pkg = resolve(cwd, `${name}/package.json`)
   const content = await readJSON(pkg)
-  content.name = name
-  if (process.env.NODE_ENV === 'testing') {
-    content.dependencies['nuxtron'] = resolve(__dirname, '..')
-  }
-  await writeJSON(pkg, {...content}, {spaces: 2})
+  await writeJSON(pkg, {...content, name}, {spaces: 2})
 
   const cmd = (await pm() === 'yarn') ? 'yarn && yarn dev' : 'npm install && npm run dev'
   spinner.clear(`Run \`${cmd}\` inside of "${name}" to start the app`)

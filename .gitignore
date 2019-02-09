@@ -60,8 +60,8 @@ typings/
 # next.js build output
 .next
 
-# nuxtron
+# poops
 .DS_Store
-.nuxt
-dist
+
+# nuxtron build output
 workspace

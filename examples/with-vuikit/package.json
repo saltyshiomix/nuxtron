@@ -8,7 +8,7 @@
   "build": {
     "appId": "com.example.nuxtron",
     "productName": "My Nuxtron App",
-    "copyright": "Copyright © ${year} ${author}",
+    "copyright": "Copyright © 2018 Yoshihide Shiono",
     "directories": {
       "output": "dist",
       "buildResources": "resources"
@@ -16,17 +16,27 @@
     "publish": null
   },
   "scripts": {
-    "dev": "nuxtron",
-    "build": "nuxtron build"
+    "dev": "node build/nuxtron.js",
+    "build": "node build/nuxtron.js build"
   },
   "dependencies": {
     "@vuikit/icons": "0.8.1",
     "@vuikit/theme": "0.8.1",
-    "nuxtron": "latest",
+    "fs-jetpack": "^2.2.1",
+    "nuxt": "2.4.3",
     "vuikit": "0.8.10"
   },
   "devDependencies": {
-    "electron": "3.0.2",
-    "electron-builder": "20.28.4"
+    "arg": "^4.1.0",
+    "chalk": "^2.4.2",
+    "electron": "4.0.4",
+    "electron-builder": "20.38.5",
+    "fast-glob": "^2.2.6",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "fs-extra": "^7.0.1",
+    "node-npx": "^1.3.1",
+    "ora": "^3.0.0",
+    "webpack": "^4.29.2",
+    "webpack-merge": "^4.2.1"
   }
 }
