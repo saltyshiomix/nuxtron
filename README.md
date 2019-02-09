@@ -119,6 +119,12 @@ See [examples](./examples) folder for more information.
 
 Or you can start the example app by `nuxtron init <app-name> --template <example-dirname>`.
 
+To list all examples, just type the command below:
+
+```bash
+$ nuxtron list
+```
+
 ### [examples/custom-build-options](./examples/custom-build-options)
 
 ```bash
