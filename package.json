@@ -6,10 +6,6 @@
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/saltyshiomix/nuxtron",
-  "bugs": {
-    "url": "https://github.com/saltyshiomix/nuxtron/issues",
-    "email": "shiono.yoshihide@gmail.com"
-  },
   "keywords": [
     "electron",
     "nuxt",
@@ -20,42 +16,28 @@
     "vue.js",
     "nuxtron"
   ],
+  "bugs": {
+    "url": "https://github.com/saltyshiomix/nuxtron/issues",
+    "email": "shiono.yoshihide@gmail.com"
+  },
   "files": [
     "bin",
-    "build",
-    "dist",
     "examples"
   ],
-  "main": "dist/index.js",
   "bin": {
     "nuxtron": "bin/nuxtron"
   },
   "scripts": {
-    "clean": "rimraf dist workspace",
-    "predev": "npm run build",
-    "dev": "node dev.js",
-    "prebuild": "npm run clean",
-    "build": "tsc",
-    "prepublishOnly": "npm run build"
+    "dev": "rimraf workspace && node dev.js"
   },
   "dependencies": {
-    "arg": "^2.0.0",
-    "chalk": "^2.4.1",
+    "arg": "^4.1.0",
+    "chalk": "^2.4.2",
     "cross-spawn": "^6.0.5",
-    "delay": "^4.0.1",
-    "fast-glob": "^2.2.3",
-    "friendly-errors-webpack-plugin": "^1.7.0",
-    "fs-extra": "^7.0.0",
-    "fs-jetpack": "^2.1.1",
-    "nuxt-edge": "^2.1.0-25651471.963b4dd",
-    "ora": "^3.0.0",
-    "webpack": "^4.20.2",
-    "webpack-merge": "^4.1.4"
+    "fs-extra": "^7.0.1",
+    "ora": "^3.0.0"
   },
   "devDependencies": {
-    "@types/node": "^10.11.4",
-    "electron": "^3.0.2",
-    "rimraf": "^2.6.2",
-    "typescript": "^3.1.1"
+    "rimraf": "^2.6.3"
   }
 }

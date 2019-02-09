@@ -56,7 +56,7 @@ Run `npm run dev`, and nuxtron automatically launches an electron app.
 ```json
 {
   "scripts": {
-    "dev": "nuxtron"
+    "dev": "node build/nuxtron.js"
   }
 }
 ```
@@ -68,7 +68,7 @@ Run `npm run build`, and nuxtron outputs packaged bundles under the `dist` folde
 ```json
 {
   "scripts": {
-    "build": "nuxtron build"
+    "build": "node build/nuxtron.js build"
   }
 }
 ```
@@ -80,12 +80,12 @@ To build Windows 32 bit version, run `npm run build:win32` like below:
 ```json
 {
   "scripts": {
-    "build": "nuxtron build",
-    "build:all": "nuxtron build --all",
-    "build:win32": "nuxtron build --win --ia32",
-    "build:win64": "nuxtron build --win --x64",
-    "build:mac": "nuxtron build --mac --x64",
-    "build:linux": "nuxtron build --linux"
+    "build": "node build/nuxtron.js build",
+    "build:all": "node build/nuxtron.js build --all",
+    "build:win32": "node build/nuxtron.js build --win --ia32",
+    "build:win64": "node build/nuxtron.js build --win --x64",
+    "build:mac": "node build/nuxtron.js build --mac --x64",
+    "build:linux": "node build/nuxtron.js build --linux"
   }
 }
 ```
@@ -101,7 +101,7 @@ Edit `package.json#build` properties for custom build configuration.
   "build": {
     "appId": "com.example.nuxtron",
     "productName": "My Nuxtron App",
-    "copyright": "Copyright © ${year} ${author}",
+    "copyright": "Copyright © 2019 Yoshihide Shiono",
     "directories": {
       "output": "dist",
       "buildResources": "resources"
