@@ -149,7 +149,7 @@ $ nuxtron init my-app --example with-vuetify
 ## Develop `examples/*`
 
 ```bash
-$ git clone https://github.com/saltyshiomix/nuxtron
+$ git clone https://github.com/saltyshiomix/nuxtron.git
 $ cd nuxtron
 $ yarn
 $ yarn dev <EXAMPLE-FOLDER-NAME>
