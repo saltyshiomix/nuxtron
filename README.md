@@ -157,4 +157,4 @@ $ yarn dev <EXAMPLE-FOLDER-NAME>
 
 ## Related
 
-- [saltyshiomix/nextron](https://github.com/saltyshiomix/nextron) - ⚡ Electron + Next.js ⚡
+- [Nextron](https://github.com/saltyshiomix/nextron) - ⚡ Electron + Next.js ⚡
