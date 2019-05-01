@@ -13,7 +13,7 @@ VueNuxtron.install = function (Vue, options) {
     } else {
       return isProd ? `../${pathname}/index.html` : '/' + pathname;
     }
-  };
+  }
 }
 
 Vue.use(VueNuxtron);

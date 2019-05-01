@@ -28,25 +28,3 @@ $ yarn build:mac (or `npm run build:mac`)
 # Build packages for Linux
 $ yarn build:linux (or `npm run build:linux`)
 ```
-
-**package.json**
-
-```json
-{
-  "scripts": {
-    "dev": "nuxtron",
-    "build": "nuxtron build",
-    "build:all": "nuxtron build --all",
-    "build:win": "nuxtron build --win --ia32",
-    "build:mac": "nuxtron build --mac --x64",
-    "build:linux": "nuxtron build --linux"
-  },
-  "dependencies": {
-    "nuxtron": "latest"
-  },
-  "devDependencies": {
-    "electron": "3.0.2",
-    "electron-builder": "20.28.4"
-  }
-}
-```

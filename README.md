@@ -32,10 +32,10 @@ $ npm install --global nuxtron
 
 ### Create Application
 
-To create `<MY-APP>`, just run the command below:
+To create `my-app`, just run the command below:
 
 ```bash
-$ nuxtron init <MY-APP>
+$ nuxtron init my-app
 ```
 
 ### Create Application with Template
@@ -45,7 +45,7 @@ You can use `examples/*` apps as a template.
 To create the `examples/with-vuetify` app, run the command below:
 
 ```bash
-$ nuxtron init <MY-APP> --example with-vuetify
+$ nuxtron init my-app --example with-vuetify
 ```
 
 ### Run Electron with Development Mode
@@ -130,15 +130,13 @@ $ nuxtron list
 $ nuxtron init my-app --example custom-build-options
 ```
 
-<p align="center"><img src="https://i.imgur.com/Nt6SNJb.png"></p>
-
-### [examples/with-element-ui](./examples/with-element-ui)
+### [examples/custom-build-options](./examples/custom-build-options)
 
 ```bash
-$ nuxtron init my-app --example with-element-ui
+$ nuxtron init my-app --example with-javascript
 ```
 
-<p align="center"><img src="https://i.imgur.com/v4KlImB.png"></p>
+<p align="center"><img src="https://i.imgur.com/Nt6SNJb.png"></p>
 
 ### [examples/with-vuetify](./examples/with-vuetify)
 
@@ -148,28 +146,12 @@ $ nuxtron init my-app --example with-vuetify
 
 <p align="center"><img src="https://i.imgur.com/wD2bDbX.png"></p>
 
-### [examples/with-vuikit](./examples/with-vuikit)
-
-```bash
-$ nuxtron init my-app --example with-vuikit
-```
-
-<p align="center"><img src="https://i.imgur.com/0NabUpW.png"></p>
-
-## Develop
-
-### Basic
+## Develop `examples/*`
 
 ```bash
 $ git clone https://github.com/saltyshiomix/nuxtron
 $ cd nuxtron
 $ yarn
-$ yarn dev # default is examples/with-vuetify
-```
-
-### Developing `examples/*`
-
-```bash
 $ yarn dev <EXAMPLE-FOLDER-NAME>
 ```
 

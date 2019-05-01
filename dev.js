@@ -4,7 +4,7 @@ const { execSync } = require('child_process');
 const chalk = require('chalk');
 
 async function dev() {
-  let template = 'with-vuetify';
+  let template = 'with-javascript';
   if (3 <= process.argv.length) {
     const newTemplate = process.argv[2];
     if (!existsSync(resolve(__dirname, `examples/${newTemplate}`))) {

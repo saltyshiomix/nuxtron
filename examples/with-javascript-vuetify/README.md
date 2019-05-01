@@ -3,7 +3,7 @@
 ## Usage
 
 ```bash
-$ nuxtron init my-app --example with-vuetify
+$ nuxtron init my-app --example with-javascript-vuetify
 
 $ cd my-app
 

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "with-element-ui",
+  "name": "with-javascript",
   "description": "My application description",
   "version": "1.0.0",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
@@ -20,7 +20,6 @@
     "build": "node build/nuxtron.js build"
   },
   "dependencies": {
-    "element-ui": "2.8.2",
     "fs-jetpack": "^2.2.1",
     "nuxt": "2.6.3"
   },
@@ -33,9 +32,7 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "fs-extra": "^7.0.1",
     "node-npx": "^1.3.1",
-    "node-sass": "^4.12.0",
     "ora": "^3.4.0",
-    "sass-loader": "^7.1.0",
     "webpack": "^4.30.0",
     "webpack-merge": "^4.2.1"
   }

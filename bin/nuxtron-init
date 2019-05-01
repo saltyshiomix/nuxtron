@@ -68,7 +68,7 @@ async function pm() {
   return pm;
 }
 
-const template = args['--template'] || args['--example'] || 'with-vuetify';
+const template = args['--template'] || args['--example'] || 'with-javascript';
 if (!existsSync(resolve(__dirname, `../examples/${template}`))) {
   console.log(chalk.red(`Not found examples/${template}`));
   process.exit(1);

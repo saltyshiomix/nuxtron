@@ -1,9 +1,9 @@
-<p align="center"><img src="https://i.imgur.com/v4KlImB.png"></p>
+<p align="center"><img src="https://i.imgur.com/Nt6SNJb.png"></p>
 
 ## Usage
 
 ```bash
-$ nuxtron init my-app --example with-element-ui
+$ nuxtron init my-app --example with-javascript
 
 $ cd my-app
 

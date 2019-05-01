@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "with-vuetify",
+  "name": "with-javascript-vuetify",
   "description": "My application description",
   "version": "1.0.0",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
@@ -22,8 +22,8 @@
   "dependencies": {
     "fs-jetpack": "^2.2.1",
     "nuxt": "2.6.3",
-    "vue": "^2.6.10",
-    "vuetify": "1.5.14"
+    "vuetify": "1.5.14",
+    "vuetify-loader": "^1.2.2"
   },
   "devDependencies": {
     "arg": "^4.1.0",
