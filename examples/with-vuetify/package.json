@@ -36,7 +36,7 @@
     "ora": "^3.4.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "webpack": "^4.29.2",
+    "webpack": "^4.30.0",
     "webpack-merge": "^4.2.1"
   }
 }
