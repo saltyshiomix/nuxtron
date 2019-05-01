@@ -10,9 +10,11 @@ const args = arg({
   '--help': Boolean,
   '--version': Boolean,
   '--template': String,
+  '--example': '--template',
   '-h': '--help',
   '-v': '--version',
   '-t': '--template',
+  '-e': '--template',
 });
 
 if (args['--version']) {
@@ -66,7 +68,7 @@ async function pm() {
   return pm;
 }
 
-const template = args['--template'] || 'with-vuetify';
+const template = args['--template'] || args['--example'] || 'with-vuetify';
 if (!existsSync(resolve(__dirname, `../examples/${template}`))) {
   console.log(chalk.red(`Not found examples/${template}`));
   process.exit(1);

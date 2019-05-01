@@ -51,9 +51,9 @@ names.forEach((name) => {
 console.log(chalk`
   {bold USAGE}
 
-    {bold $} {cyan nuxtron init} {underline my-app} [--template {underline example_folder_name}]
+    {bold $} {cyan nuxtron init} {underline my-app} [--example {underline example_folder_name}]
 
   If you want to use "{underline with-vuetify}", just type the command below:
 
-    {bold $} nuxtron init my-app --template {underline with-vuetify}
+    {bold $} nuxtron init my-app --example {underline with-vuetify}
 `);
