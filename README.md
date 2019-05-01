@@ -130,7 +130,7 @@ $ nuxtron list
 $ nuxtron init my-app --example custom-build-options
 ```
 
-### [examples/custom-build-options](./examples/custom-build-options)
+### [examples/with-javascript](./examples/with-javascript)
 
 ```bash
 $ nuxtron init my-app --example with-javascript
