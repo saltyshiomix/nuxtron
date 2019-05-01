@@ -52,41 +52,41 @@ export default {
         date: '',
         subscribe: false,
         priority: 'm',
-        rate: 5
+        rate: 5,
       },
       formRules: {
         name: [
           { required: true, message: 'Account is required', trigger: 'blur' },
-          { min: 6, message: 'Account\'s length is at least 6', trigger: 'blur' }
-        ]
-      }
-    }
+          { min: 6, message: 'Account\'s length is at least 6', trigger: 'blur' },
+        ],
+      },
+    };
   },
   methods: {
     submit(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          this.$message.success('Create successfully !')
+          this.$message.success('Create successfully !');
           if (formName === 'popForm') {
-            this.popVisible = false
+            this.popVisible = false;
           }
-          return false
+          return false;
         } else {
-          this.$message.warning('Create failed')
-          return false
+          this.$message.warning('Create failed');
+          return false;
         }
-      })
+      });
     },
     reset(formName) {
-      this.$refs[formName].resetFields()
-    }
-  }
+      this.$refs[formName].resetFields();
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 .el-select {
-  display: block
+  display: block;
 }
 @media (max-width: 768px) {
   .el-row {

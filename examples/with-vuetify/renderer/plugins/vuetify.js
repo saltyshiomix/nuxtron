@@ -1,6 +1,6 @@
-import Vue from 'vue'
-import Vuetify from 'vuetify'
-import colors from 'vuetify/es5/util/colors'
+import Vue from 'vue';
+import Vuetify from 'vuetify';
+import colors from 'vuetify/es5/util/colors';
 
 // You can also specify those components you are going to use for "a la carte" build:
 // https://github.com/vuetifyjs/nuxt/blob/master/template/plugins/vuetify.js
@@ -14,6 +14,6 @@ Vue.use(Vuetify, {
     info: colors.teal.lighten1,
     warning: colors.amber.darken2,
     error: colors.deepOrange.accent4,
-    success: colors.green.accent3
-  }
-})
+    success: colors.green.accent3,
+  },
+});

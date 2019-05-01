@@ -8,25 +8,27 @@ export default {
       {
         rel: 'stylesheet',
         type: 'text/css',
-        href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
-      }
-    ]
+        href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons',
+      },
+    ],
   },
   build: {
     extend: (config) => {
-      config.target = 'electron-renderer'
+      config.target = 'electron-renderer';
     },
-    extractCSS: true
+    extractCSS: true,
   },
   /*
   ** Load Nuxtron and Vuetify into the app
   */
   plugins: [
     '~/plugins/nuxtron',
-    '~/plugins/vuetify'
+    '~/plugins/vuetify',
   ],
   /*
   ** Load Vuetify CSS globally
   */
-  css: ['~/assets/app.styl']
+  css: [
+    '~/assets/app.styl',
+  ],
 }

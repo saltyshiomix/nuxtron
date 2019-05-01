@@ -1,11 +1,11 @@
 export default {
   build: {
     extend: (config) => {
-      config.target = 'electron-renderer'
+      config.target = 'electron-renderer';
     },
-    extractCSS: true
+    extractCSS: true,
   },
   plugins: [
-    '~/plugins/nuxtron'
-  ]
+    '~/plugins/nuxtron',
+  ],
 }

@@ -1,15 +1,15 @@
 export default {
   build: {
     extend: (config) => {
-      config.target = 'electron-renderer'
-    }
+      config.target = 'electron-renderer';
+    },
   },
 
   /*
   ** Global CSS
   */
   css: [
-    '../node_modules/element-ui/lib/theme-chalk/index.css'
+    '../node_modules/element-ui/lib/theme-chalk/index.css',
   ],
 
   /*
@@ -17,6 +17,6 @@ export default {
   */
   plugins: [
     '~/plugins/element-ui',
-    '~/plugins/nuxtron'
-  ]
+    '~/plugins/nuxtron',
+  ],
 }
