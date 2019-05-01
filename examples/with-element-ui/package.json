@@ -20,7 +20,7 @@
     "build": "node build/nuxtron.js build"
   },
   "dependencies": {
-    "element-ui": "2.5.4",
+    "element-ui": "2.8.2",
     "fs-jetpack": "^2.2.1",
     "nuxt": "2.6.3"
   },
