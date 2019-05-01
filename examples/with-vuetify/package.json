@@ -22,6 +22,7 @@
   "dependencies": {
     "fs-jetpack": "^2.2.1",
     "nuxt": "2.6.3",
+    "vue": "^2.6.10",
     "vuetify": "1.5.14"
   },
   "devDependencies": {
