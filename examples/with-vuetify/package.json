@@ -22,7 +22,7 @@
   "dependencies": {
     "fs-jetpack": "^2.2.1",
     "nuxt": "2.6.3",
-    "vuetify": "1.5.0"
+    "vuetify": "1.5.14"
   },
   "devDependencies": {
     "arg": "^4.1.0",
