@@ -1,5 +1,4 @@
 <p align="center"><img src="https://i.imgur.com/wD2bDbX.png"></p>
-
 <p align="center">
   <a href="https://www.npmjs.com/package/nuxtron"><img src="https://img.shields.io/npm/v/nuxtron.svg"></a>
   <a href="https://www.npmjs.com/package/nuxtron"><img src="https://img.shields.io/npm/dt/nuxtron.svg"></a>
@@ -46,7 +45,7 @@ You can use `examples/*` apps as a template.
 To create the `examples/with-vuetify` app, run the command below:
 
 ```bash
-$ nuxtron init <MY-APP> --template with-vuetify
+$ nuxtron init <MY-APP> --example with-vuetify
 ```
 
 ### Run Electron with Development Mode
@@ -117,7 +116,7 @@ For more information, please check out [electron-builder official configuration 
 
 See [examples](./examples) folder for more information.
 
-Or you can start the example app by `nuxtron init <app-name> --template <example-dirname>`.
+Or you can start the example app by `nuxtron init <app-name> --example <example-dirname>`.
 
 To list all examples, just type the command below:
 
@@ -128,7 +127,7 @@ $ nuxtron list
 ### [examples/custom-build-options](./examples/custom-build-options)
 
 ```bash
-$ nuxtron init my-app --template custom-build-options
+$ nuxtron init my-app --example custom-build-options
 ```
 
 <p align="center"><img src="https://i.imgur.com/Nt6SNJb.png"></p>
@@ -136,7 +135,7 @@ $ nuxtron init my-app --template custom-build-options
 ### [examples/with-element-ui](./examples/with-element-ui)
 
 ```bash
-$ nuxtron init my-app --template with-element-ui
+$ nuxtron init my-app --example with-element-ui
 ```
 
 <p align="center"><img src="https://i.imgur.com/v4KlImB.png"></p>
@@ -144,7 +143,7 @@ $ nuxtron init my-app --template with-element-ui
 ### [examples/with-vuetify](./examples/with-vuetify)
 
 ```bash
-$ nuxtron init my-app --template with-vuetify
+$ nuxtron init my-app --example with-vuetify
 ```
 
 <p align="center"><img src="https://i.imgur.com/wD2bDbX.png"></p>
@@ -152,7 +151,7 @@ $ nuxtron init my-app --template with-vuetify
 ### [examples/with-vuikit](./examples/with-vuikit)
 
 ```bash
-$ nuxtron init my-app --template with-vuikit
+$ nuxtron init my-app --example with-vuikit
 ```
 
 <p align="center"><img src="https://i.imgur.com/0NabUpW.png"></p>

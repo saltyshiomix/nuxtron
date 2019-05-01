@@ -3,7 +3,7 @@
 ## Usage
 
 ```bash
-$ nuxtron init my-app --template with-vuikit
+$ nuxtron init my-app --example with-vuikit
 
 $ cd my-app
 

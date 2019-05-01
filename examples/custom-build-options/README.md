@@ -3,7 +3,7 @@
 ## Usage
 
 ```bash
-$ nuxtron init my-app --template custom-build-options
+$ nuxtron init my-app --example custom-build-options
 
 $ cd my-app
 

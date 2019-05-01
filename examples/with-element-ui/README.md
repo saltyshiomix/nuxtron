@@ -3,7 +3,7 @@
 ## Usage
 
 ```bash
-$ nuxtron init my-app --template with-element-ui
+$ nuxtron init my-app --example with-element-ui
 
 $ cd my-app
 
