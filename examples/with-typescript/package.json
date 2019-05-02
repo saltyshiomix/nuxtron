@@ -1,20 +1,10 @@
 {
   "private": true,
-  "name": "with-javascript",
+  "name": "with-typescript",
   "description": "My application description",
   "version": "1.0.0",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
   "main": "app/background.js",
-  "build": {
-    "appId": "com.example.nuxtron",
-    "productName": "My Nuxtron App",
-    "copyright": "Copyright © 2018 Yoshihide Shiono",
-    "directories": {
-      "output": "dist",
-      "buildResources": "resources"
-    },
-    "publish": null
-  },
   "scripts": {
     "dev": "node build/nuxtron.js",
     "build": "node build/nuxtron.js build"
@@ -27,7 +17,10 @@
   },
   "devDependencies": {
     "@nuxt/typescript": "^2.6.3",
+    "@types/cross-spawn": "^6.0.0",
+    "@types/fs-extra": "^5.0.5",
     "@types/node": "^11.13.8",
+    "@types/webpack": "^4.4.29",
     "arg": "^4.1.0",
     "chalk": "^2.4.2",
     "electron": "^5.0.0",

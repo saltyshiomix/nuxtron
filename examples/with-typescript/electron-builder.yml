@@ -1,0 +1,6 @@
+appId: com.example.nuxtron
+productName: My Nuxtron App
+copyright: Copyright © 2018 Yoshihide Shiono
+directories:
+  output: dist
+  buildResources: resources
