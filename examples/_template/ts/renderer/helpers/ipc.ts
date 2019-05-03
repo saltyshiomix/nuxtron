@@ -1,51 +1,57 @@
-import electron, { ipcRenderer } from 'electron'
+import electron, { ipcRenderer, Event } from 'electron';
 
-const getResponseChannels = channel => ({
+const getResponseChannels = (channel: string) => ({
   sendChannel: `%nextron-send-channel-${channel}`,
   dataChannel: `%nextron-response-data-channel-${channel}`,
-  errorChannel: `%nextron-response-error-channel-${channel}`
-})
+  errorChannel: `%nextron-response-error-channel-${channel}`,
+});
 
-const getRendererResponseChannels = (windowId, channel) => ({
+const getRendererResponseChannels = (windowId: number, channel: string) => ({
   sendChannel: `%nextron-send-channel-${windowId}-${channel}`,
   dataChannel: `%nextron-response-data-channel-${windowId}-${channel}`,
-  errorChannel: `%nextron-response-error-channel-${windowId}-${channel}`
-})
+  errorChannel: `%nextron-response-error-channel-${windowId}-${channel}`,
+});
 
 export default class ipc {
-  static callMain(channel, data) {
+  static callMain(channel: string, data: any) {
     return new Promise((resolve, reject) => {
-      const { sendChannel, dataChannel, errorChannel } = getResponseChannels(channel)
+      const { sendChannel, dataChannel, errorChannel } = getResponseChannels(
+        channel,
+      );
 
       const cleanup = () => {
-        ipcRenderer.removeAllListeners(dataChannel)
-        ipcRenderer.removeAllListeners(errorChannel)
-      }
+        ipcRenderer.removeAllListeners(dataChannel);
+        ipcRenderer.removeAllListeners(errorChannel);
+      };
 
-      ipcRenderer.on(dataChannel, (_, result) => {
-        cleanup()
-        resolve(result)
-      })
+      ipcRenderer.on(dataChannel, (_: Event, result: any) => {
+        cleanup();
+        resolve(result);
+      });
 
-      ipcRenderer.on(errorChannel, (_, error) => {
-        cleanup()
-        reject(error)
-      })
+      ipcRenderer.on(errorChannel, (_: Event, error: any) => {
+        cleanup();
+        reject(error);
+      });
 
-      ipcRenderer.send(sendChannel, data)
-    })
+      ipcRenderer.send(sendChannel, data);
+    });
   }
 
-  static answerMain(channel, callback) {
-    const window = electron.remote.getCurrentWindow()
-    const { sendChannel, dataChannel, errorChannel } = getRendererResponseChannels(window.id, channel)
+  static answerMain(channel: string, callback: Function) {
+    const window = electron.remote.getCurrentWindow();
+    const {
+      sendChannel,
+      dataChannel,
+      errorChannel,
+    } = getRendererResponseChannels(window.id, channel);
 
-    ipcRenderer.on(sendChannel, async (_, data) => {
+    ipcRenderer.on(sendChannel, async (_: Event, data: any) => {
       try {
-        ipcRenderer.send(dataChannel, await callback(data))
+        ipcRenderer.send(dataChannel, await callback(data));
       } catch (err) {
-        ipcRenderer.send(errorChannel, err)
+        ipcRenderer.send(errorChannel, err);
       }
-    })
+    });
   }
 }

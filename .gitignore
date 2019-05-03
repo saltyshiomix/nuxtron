@@ -57,8 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
-# next.js build output
-.next
+# nuxt.js build output
+.nuxt
 
 # poops
 .DS_Store

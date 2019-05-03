@@ -1,11 +1,5 @@
-import ipc from './ipc'
-import resolve from './resolve'
-import resolveWithIpc from './resolveWithIpc'
-import LinkWithIpc from './LinkWithIpc'
+import ipc from './ipc';
+import resolve from './resolve';
+import resolveWithIpc from './resolveWithIpc';
 
-export {
-  ipc,
-  resolve,
-  resolveWithIpc,
-  LinkWithIpc
-}
+export { ipc, resolve, resolveWithIpc };
