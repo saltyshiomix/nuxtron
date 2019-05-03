@@ -1,5 +1,3 @@
-// import { Configuration as WebpackConfiguration } from 'webpack';
-
 export default {
   build: {
     extend: config => {
