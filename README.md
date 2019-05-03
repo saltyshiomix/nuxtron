@@ -146,6 +146,14 @@ $ nuxtron init my-app --example with-vuetify
 
 <p align="center"><img src="https://i.imgur.com/wD2bDbX.png"></p>
 
+### [examples/with-typescript](./examples/with-typescript)
+
+```bash
+$ nuxtron init my-app --example with-typescript
+```
+
+<p align="center"><img src="https://i.imgur.com/Nt6SNJb.png"></p>
+
 ## Develop `examples/*`
 
 ```bash
