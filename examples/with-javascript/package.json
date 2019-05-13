@@ -20,7 +20,7 @@
     "build": "node build/nuxtron.js build"
   },
   "dependencies": {
-    "fs-jetpack": "^2.2.1",
+    "fs-jetpack": "^2.2.2",
     "nuxt": "2.6.3"
   },
   "devDependencies": {

@@ -24,7 +24,7 @@
     "build:linux": "node build/nuxtron.js build --linux"
   },
   "dependencies": {
-    "fs-jetpack": "^2.2.1",
+    "fs-jetpack": "^2.2.2",
     "nuxt": "2.6.3"
   },
   "devDependencies": {
