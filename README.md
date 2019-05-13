@@ -6,7 +6,7 @@
 
 Build an [Electron](https://electronjs.org/) + [Nuxt.js](https://nuxtjs.org/) app for speed ⚡
 
-(The screenshot above is a top page of [examples/with-vuetify](./examples/with-vuetify).)
+(The screenshot above is a top page of [examples/with-javascript-vuetify](./examples/with-javascript-vuetify).)
 
 ## My Belief for Nuxtron
 
@@ -42,10 +42,10 @@ $ nuxtron init my-app
 
 You can use `examples/*` apps as a template.
 
-To create the `examples/with-vuetify` app, run the command below:
+To create the `examples/with-javascript-vuetify` app, run the command below:
 
 ```bash
-$ nuxtron init my-app --example with-vuetify
+$ nuxtron init my-app --example with-javascript-vuetify
 ```
 
 ### Run Electron with Development Mode
@@ -138,10 +138,10 @@ $ nuxtron init my-app --example with-javascript
 
 <p align="center"><img src="https://i.imgur.com/Nt6SNJb.png"></p>
 
-### [examples/with-vuetify](./examples/with-vuetify)
+### [examples/with-javascript-vuetify](./examples/with-javascript-vuetify)
 
 ```bash
-$ nuxtron init my-app --example with-vuetify
+$ nuxtron init my-app --example with-javascript-vuetify
 ```
 
 <p align="center"><img src="https://i.imgur.com/wD2bDbX.png"></p>
