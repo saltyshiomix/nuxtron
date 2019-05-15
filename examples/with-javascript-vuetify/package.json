@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "fs-jetpack": "^2.2.2",
-    "nuxt": "2.6.3",
+    "nuxt": "2.7.1",
     "vuetify": "1.5.14",
     "vuetify-loader": "^1.2.2"
   },
