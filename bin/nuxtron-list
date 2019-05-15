@@ -53,7 +53,7 @@ console.log(chalk`
 
     {bold $} {cyan nuxtron init} {underline my-app} [--example {underline example_folder_name}]
 
-  If you want to use "{underline with-vuetify}", just type the command below:
+  If you want to use "{underline with-javascript-vuetify}", just type the command below:
 
-    {bold $} nuxtron init my-app --example {underline with-vuetify}
+    {bold $} nuxtron init my-app --example {underline with-javascript-vuetify}
 `);
