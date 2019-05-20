@@ -6,7 +6,7 @@ const isTTY = process.env.CI ? false : process.stdout.isTTY;
 
 export function create(text: string) {
   if (!isTTY) {
-    console.log(chalk`{cyan [nextron]} ${text}`);
+    console.log(chalk`{cyan [nuxtron]} ${text}`);
     return;
   }
 
@@ -24,7 +24,7 @@ export function create(text: string) {
 
 export function clear(message: string, isError?: boolean) {
   if (!isTTY) {
-    console.log(chalk`{cyan [nextron]} ${message}`);
+    console.log(chalk`{cyan [nuxtron]} ${message}`);
     return;
   }
 
