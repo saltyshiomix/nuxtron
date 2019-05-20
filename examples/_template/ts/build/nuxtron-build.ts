@@ -6,8 +6,6 @@ const fg = require('fast-glob');
 const { npxSync: npx } = require('node-npx');
 import * as spinner from './spinner';
 
-// const spinner = require('./spinner');
-
 const args = arg({
   '--help': Boolean,
   '--version': Boolean,

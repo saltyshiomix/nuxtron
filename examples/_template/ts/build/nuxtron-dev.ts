@@ -1,6 +1,5 @@
 import arg from 'arg';
 import chalk from 'chalk';
-// import { npx, npxSync } from 'node-npx';
 import { ChildProcess } from 'child_process';
 import delay from 'delay';
 import webpack from 'webpack';

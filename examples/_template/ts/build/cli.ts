@@ -3,10 +3,6 @@ import spawn from 'cross-spawn';
 import chalk from 'chalk';
 
 export function run() {
-  // const { resolve } = require('path');
-  // const { spawn } = require('cross-spawn');
-  // const chalk = require('chalk');
-
   const defaultCommand = 'dev';
   const commands = new Set(['build', defaultCommand]);
 
@@ -53,7 +49,6 @@ export function run() {
   const startProcess = () => {
     const proc = spawn('ts-node', [...nodeArgs, ...[cli], ...args], {
       stdio: 'inherit',
-      // customFds: [0, 1, 2],
     });
     proc.on('close', (code: number, signal: string) => {
       if (code !== null) {
