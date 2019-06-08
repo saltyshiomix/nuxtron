@@ -77,6 +77,9 @@ export default (
   const browserOptions: BrowserWindowConstructorOptions = {
     ...options,
     ...state,
+    webPreferences: {
+      nodeIntegration: true,
+    },
   };
   win = new BrowserWindow(browserOptions);
 
