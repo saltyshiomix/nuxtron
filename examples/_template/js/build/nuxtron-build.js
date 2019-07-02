@@ -8,6 +8,17 @@ const fg = require('fast-glob')
 const { npxSync: npx } = require('node-npx')
 const spinner = require('./spinner')
 
+const nuxtConfig = require('../renderer/nuxt.config');
+
+let isSpaMode = false;
+let publicPath = '_nuxt';
+if(nuxtConfig.default.mode && nuxtConfig.default.mode.toLowerCase() === 'spa'){
+  isSpaMode = true;
+  if(nuxtConfig.default.build.publicPath){
+    publicPath = nuxtConfig.default.build.publicPath
+  }
+}
+
 const args = arg({
   '--help': Boolean,
   '--version': Boolean,
@@ -65,14 +76,25 @@ async function build(args) {
     spinner.create('Building renderer process')
     const outdir = join(cwd, 'renderer/dist')
     const appdir = join(cwd, 'app')
-    await npx('nuxt', ['build', 'renderer'], { cwd })
-    await npx('nuxt', ['generate', 'renderer'], { cwd })
+    if(isSpaMode){
+      await npx('nuxt', ['build', 'renderer', 'spa'], { cwd });
+    }else{
+      await npx('nuxt', ['build', 'renderer'], { cwd });
+      await npx('nuxt', ['generate', 'renderer'], { cwd });
+    }
     await copy(outdir, appdir)
     await remove(outdir)
     const pages = fg.sync(join(appdir, '**/*.html'))
     pages.forEach(page => {
       writeFileSync(page, resolveExportedPaths(page))
     })
+
+    if(isSpaMode){
+      const js = fg.sync(join(appdir, '**/*.js'));
+      js.forEach(js => {
+        writeFileSync(js, resolveExportedPathsJs(js));
+      });
+    }
 
     spinner.create('Building main process')
     await npx('node', [join('build/webpack/build.production.js')], { cwd })
@@ -92,6 +114,12 @@ function resolveExportedPaths(page) {
   const content = readFileSync(page).toString()
   const depth = page.split('/app/')[1].split('/').length - 1
   return content.replace(/"\/_nuxt\//g, `"${resolveDepth('nuxt', depth)}`)
+}
+
+function resolveExportedPathsJs(page) {
+  const content = readFileSync(page).toString();
+  let correctContent = content.replace("/" + publicPath + "/", publicPath + "/");
+  return correctContent;
 }
 
 function resolveDepth(name, depth) {
