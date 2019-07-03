@@ -8,14 +8,20 @@ const fg = require('fast-glob')
 const { npxSync: npx } = require('node-npx')
 const spinner = require('./spinner')
 
-const nuxtConfig = require('../renderer/nuxt.config');
+var babel = require("@babel/core");
+
+const nuxtConfig = eval(babel.transform(readFileSync(process.cwd() + '/renderer/nuxt.config.js'), {
+  "plugins": [
+    ["@babel/plugin-transform-modules-commonjs"]
+  ]
+}).code);
 
 let isSpaMode = false;
 let publicPath = '_nuxt';
-if(nuxtConfig.default.mode && nuxtConfig.default.mode.toLowerCase() === 'spa'){
+if(nuxtConfig.mode && nuxtConfig.mode.toLowerCase() === 'spa'){
   isSpaMode = true;
-  if(nuxtConfig.default.build.publicPath){
-    publicPath = nuxtConfig.default.build.publicPath
+  if(nuxtConfig.build.publicPath){
+    publicPath = nuxtConfig.build.publicPath
   }
 }
 
