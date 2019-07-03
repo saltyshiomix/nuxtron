@@ -77,7 +77,7 @@ Run `npm run build`, and nuxtron outputs packaged bundles under the `dist` folde
 1. Go to `main/background.js/background.ts`
 1. Change the following lines removing "home" from path to `index.html` and `homeUrl`
 
-####Old
+`Old`
 ```javascript
 if (isProd) {
     const homeFile = join(app.getAppPath(), 'app/home/index.html')
@@ -88,7 +88,7 @@ if (isProd) {
     mainWindow.webContents.openDevTools()
   }
 ```
-####New
+`New`
 ```javascript
 if (isProd) {
     const homeFile = join(app.getAppPath(), 'app/index.html')
