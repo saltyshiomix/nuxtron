@@ -72,6 +72,34 @@ Run `npm run build`, and nuxtron outputs packaged bundles under the `dist` folde
 }
 ```
 
+### Production Build with SPA mode in Nuxt
+
+1. Go to `main/background.js/background.ts`
+1. Change the following lines removing "home" from path to `index.html` and `homeUrl`
+
+####Old
+```javascript
+if (isProd) {
+    const homeFile = join(app.getAppPath(), 'app/home/index.html')
+    mainWindow.loadFile(homeFile)
+  } else {
+    const homeUrl = 'http://localhost:8888/home'
+    mainWindow.loadURL(homeUrl)
+    mainWindow.webContents.openDevTools()
+  }
+```
+####New
+```javascript
+if (isProd) {
+    const homeFile = join(app.getAppPath(), 'app/index.html')
+    mainWindow.loadFile(homeFile)
+  } else {
+    const homeUrl = 'http://localhost:8888/'
+    mainWindow.loadURL(homeUrl)
+    mainWindow.webContents.openDevTools()
+  }
+```
+
 ### Build Options
 
 To build Windows 32 bit version, run `npm run build:win32` like below:
