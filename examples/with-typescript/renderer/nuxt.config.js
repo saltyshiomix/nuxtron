@@ -1,9 +1,10 @@
 export default {
+  head: {
+    title: 'Nuxtron (with-typescript)',
+  },
   build: {
-    extend: config => {
+    extend: (config) => {
       config.target = 'electron-renderer';
     },
-    extractCSS: true,
   },
-  plugins: ['~/plugins/nuxtron'],
-};
+}

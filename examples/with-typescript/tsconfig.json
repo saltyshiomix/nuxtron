@@ -3,13 +3,15 @@
     "target": "esnext",
     "module": "commonjs",
     "moduleResolution": "node",
-    "strict": true,
     "jsx": "preserve",
+    "strict": true,
+    "sourceMap": true,
     "importHelpers": true,
     "esModuleInterop": true,
-    "sourceMap": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
