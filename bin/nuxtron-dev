@@ -1,15 +1,18 @@
-import arg from 'arg';
-import chalk from 'chalk';
-import { ChildProcess } from 'child_process';
-import delay from 'delay';
-import webpack from 'webpack';
+#!/usr/bin/env node
+
+const arg = require('arg');
+const chalk = require('chalk');
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 const args = arg({
   '--help': Boolean,
   '--version': Boolean,
+  '--port': Number,
   '--custom-server': String,
   '-h': '--help',
   '-v': '--version',
+  '-p': '--port',
   '-c': '--custom-server',
 });
 
@@ -30,31 +33,30 @@ if (args['--help']) {
   process.exit(0);
 }
 
+const rendererPort = args['--port'] || 8888;
+
+const spawnOptions = {
+  cwd: process.cwd(),
+  stdio: 'inherit',
+};
+
 async function dev() {
-  const { npx, npxSync } = require('node-npx');
-  const config = require('./webpack/webpack.main.config');
-  const cwd = process.cwd();
+  const spawn = require('cross-spawn');
+  const delay = require('delay');
+  const webpack = require('webpack');
+  const { getWebpackConfig } = require('./webpack/helpers');
 
   const startRendererProcess = () => {
-    let child: ChildProcess;
+    let child;
     if (args['--custom-server']) {
       const { existsSync } = require('fs');
       if (existsSync('nodemon.json')) {
-        child = npx('nodemon', [args['--custom-server']], {
-          cwd,
-          stdio: 'inherit',
-        });
+        child = spawn('nodemon', [args['--custom-server']], spawnOptions);
       } else {
-        child = npx('node', [args['--custom-server']], {
-          cwd,
-          stdio: 'inherit',
-        });
+        child = spawn('node', [args['--custom-server']], spawnOptions);
       }
     } else {
-      child = npx('nuxt', ['-p', '8888', 'renderer'], {
-        cwd,
-        stdio: 'inherit',
-      });
+      child = spawn('nuxt', ['-p', rendererPort, 'renderer'], spawnOptions);
     }
     child.on('close', () => {
       process.exit(0);
@@ -62,11 +64,11 @@ async function dev() {
     return child;
   };
 
-  let watching: webpack.Compiler.Watching;
-  let rendererProcess: ChildProcess;
+  let watching;
+  let rendererProcess;
   const killWholeProcess = () => {
     if (watching) {
-      watching.close(() => {});
+      watching.close();
     }
     if (rendererProcess) {
       rendererProcess.kill();
@@ -82,7 +84,7 @@ async function dev() {
   // wait until renderer process is ready
   await delay(8000);
 
-  const compiler = webpack(config('development'));
+  const compiler = webpack(getWebpackConfig('development'));
   let isHotReload = false;
   watching = compiler.watch({}, async (err, stats) => {
     if (!err && !stats.hasErrors()) {
@@ -90,7 +92,7 @@ async function dev() {
         await delay(2000);
       }
       isHotReload = true;
-      await npxSync('electron', ['.'], { cwd, stdio: 'inherit' });
+      await spawn.sync('electron', ['.', rendererPort], spawnOptions);
     }
   });
 }

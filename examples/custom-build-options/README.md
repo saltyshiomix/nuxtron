@@ -1,30 +1,30 @@
-<p align="center"><img src="https://i.imgur.com/Nt6SNJb.png"></p>
+<p align="center"><img src="https://i.imgur.com/PTqXTbx.png"></p>
 
 ## Usage
 
 ```bash
+# create an app
 $ nuxtron init my-app --example custom-build-options
 
+# install dependencies
 $ cd my-app
-
-# Install dependencies
 $ yarn (or `npm install`)
 
-# Run development mode
+# development mode
 $ yarn dev (or `npm run dev`)
 
-# Build packages
+# production build
 $ yarn build (or `npm run build`)
 
-# Build packages for all platform
+# production build for all platform
 $ yarn build:all (or `npm run build:all`)
 
-# Build packages for windows 32 bit
+# production build for windows 32 bit
 $ yarn build:win (or `npm run build:win`)
 
-# Build packages for macOS 64 bit
+# production build for macOS 64 bit
 $ yarn build:mac (or `npm run build:mac`)
 
-# Build packages for Linux
+# production build for Linux
 $ yarn build:linux (or `npm run build:linux`)
 ```

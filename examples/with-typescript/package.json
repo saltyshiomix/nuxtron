@@ -3,34 +3,23 @@
   "name": "with-typescript",
   "description": "My application description",
   "version": "1.0.0",
-  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "author": "Shiono Yoshihide <shiono.yoshihide@gmail.com>",
   "main": "app/background.js",
   "scripts": {
-    "dev": "node build/nuxtron.js",
-    "build": "node build/nuxtron.js build"
+    "dev": "nuxtron",
+    "build": "nuxtron build"
   },
   "dependencies": {
-    "electron-store": "^3.2.0",
-    "nuxt": "2.8.1"
+    "electron-serve": "^0.4.0",
+    "electron-store": "^5.0.0"
   },
   "devDependencies": {
-    "@nuxt/typescript": "2.8.1",
-    "@types/cross-spawn": "^6.0.0",
-    "@types/fs-extra": "^7.0.0",
-    "@types/node": "^12.0.3",
-    "@types/webpack": "^4.4.32",
-    "arg": "^4.1.0",
-    "chalk": "^2.4.2",
-    "electron": "5.0.3",
-    "electron-builder": "20.43.0",
-    "fast-glob": "^2.2.6",
-    "friendly-errors-webpack-plugin": "^1.7.0",
-    "fs-extra": "^8.0.1",
-    "node-npx": "^1.3.1",
-    "ora": "^3.4.0",
-    "ts-node": "^8.1.0",
-    "typescript": "^3.5.1",
-    "webpack": "^4.33.0",
-    "webpack-merge": "^4.2.1"
+    "@nuxt/typescript": "^2.8.1",
+    "@types/node": "^12.7.12",
+    "electron": "^6.0.12",
+    "electron-builder": "^21.2.0",
+    "nuxt": "^2.10.1",
+    "nuxtron": "^0.2.0",
+    "typescript": "^3.6.4"
   }
 }

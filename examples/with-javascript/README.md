@@ -1,18 +1,18 @@
-<p align="center"><img src="https://i.imgur.com/Nt6SNJb.png"></p>
+<p align="center"><img src="https://i.imgur.com/PTqXTbx.png"></p>
 
 ## Usage
 
 ```bash
+# create an app
 $ nuxtron init my-app --example with-javascript
 
+# install dependencies
 $ cd my-app
-
-# Install dependencies
 $ yarn (or `npm install`)
 
-# Run development mode
+# development mode
 $ yarn dev (or `npm run dev`)
 
-# Build packages
+# production build
 $ yarn build (or `npm run build`)
 ```

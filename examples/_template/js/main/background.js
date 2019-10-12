@@ -1,32 +1,36 @@
-import { join } from 'path'
-import { app } from 'electron'
-import { createWindow, exitOnChange } from './helpers'
+import { app } from 'electron';
+import serve from 'electron-serve';
+import {
+  createWindow,
+  exitOnChange,
+} from './helpers';
 
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = process.env.NODE_ENV === 'production';
 
-if (!isProd) {
-  exitOnChange()
-
-  const userDataPath = app.getPath('userData')
-  app.setPath('userData', `${userDataPath} (development)`)
+if (isProd) {
+  serve({ directory: 'app' });
+} else {
+  exitOnChange();
+  app.setPath('userData', `${app.getPath('userData')} (development)`);
 }
 
-app.on('ready', () => {
+(async () => {
+  await app.whenReady();
+
   const mainWindow = createWindow('main', {
     width: 1000,
-    height: 600
-  })
+    height: 600,
+  });
 
   if (isProd) {
-    const homeFile = join(app.getAppPath(), 'app/home/index.html')
-    mainWindow.loadFile(homeFile)
+    await mainWindow.loadURL('app://./index.html');
   } else {
-    const homeUrl = 'http://localhost:8888/home'
-    mainWindow.loadURL(homeUrl)
-    mainWindow.webContents.openDevTools()
+    const port = process.argv[2];
+    await mainWindow.loadURL(`http://localhost:${port}`);
+    mainWindow.webContents.openDevTools();
   }
-})
+})();
 
 app.on('window-all-closed', () => {
-  app.quit()
-})
+  app.quit();
+});

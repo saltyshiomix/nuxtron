@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <img src="/nuxt-black.png">
-    <h2>Thank you for testing Nuxtron</h2>
+    <img src="/nuxt.png">
+    <h2>Hello Nuxtron.</h2>
     <p>Loaded from the {{ name }}</p>
     <p>
-      <NuxtLink to="/">
-        Back home
+      <NuxtLink to="/about">
+        About
       </NuxtLink>
     </p>
   </div>
@@ -28,13 +28,13 @@ export default {
   left: 0;
   height: 100%;
   width: 100%;
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   font-family: "Lucida Console", Monaco, monospace;
   padding-top: 100px;
   text-align: center;
 }
 a {
-  color: white;
+  color: black;
 }
 </style>
