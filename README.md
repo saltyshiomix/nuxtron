@@ -158,13 +158,15 @@ $ nuxtron list
 $ nuxtron init my-app --example custom-build-options
 ```
 
+<p align="center"><img src="https://i.imgur.com/PTqXTbx.png"></p>
+
 ### [examples/with-javascript](./examples/with-javascript)
 
 ```bash
 $ nuxtron init my-app --example with-javascript
 ```
 
-<p align="center"><img src="https://i.imgur.com/Nt6SNJb.png"></p>
+<p align="center"><img src="https://i.imgur.com/PTqXTbx.png"></p>
 
 ### [examples/with-javascript-vuetify](./examples/with-javascript-vuetify)
 
@@ -180,7 +182,7 @@ $ nuxtron init my-app --example with-javascript-vuetify
 $ nuxtron init my-app --example with-typescript
 ```
 
-<p align="center"><img src="https://i.imgur.com/Nt6SNJb.png"></p>
+<p align="center"><img src="https://i.imgur.com/PTqXTbx.png"></p>
 
 ## Develop `examples/*`
 
@@ -193,4 +195,4 @@ $ yarn dev <EXAMPLE-FOLDER-NAME>
 
 ## Related
 
-- [Nextron](https://github.com/saltyshiomix/nextron) - ⚡ Electron + Next.js ⚡
+- [Nextron](https://github.com/saltyshiomix/nextron) - ⚡ Electron + NEXT.js ⚡
