@@ -3,6 +3,5 @@ export default {
     extend: (config) => {
       config.target = 'electron-renderer';
     },
-    extractCSS: true,
   },
 }
