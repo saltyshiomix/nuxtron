@@ -21,6 +21,6 @@
     "electron": "^6.0.12",
     "electron-builder": "^21.2.0",
     "nuxt": "^2.10.1",
-    "nuxtron": "^0.2.0"
+    "nuxtron": "^0.2.1"
   }
 }

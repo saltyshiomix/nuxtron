@@ -73,7 +73,7 @@ async function detectPackageManager() {
   return pm;
 }
 
-const example = args['--template'] || args['--example'] || 'with-javascript-material-ui';
+const example = args['--template'] || args['--example'] || 'with-javascript';
 if (!existsSync(resolve(__dirname, `../examples/${example}`))) {
   console.log(chalk.red(`Not found examples/${example}`));
   process.exit(1);
