@@ -5,7 +5,4 @@ export default {
     },
     extractCSS: true,
   },
-  plugins: [
-    '~/plugins/nuxtron',
-  ],
 }
