@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <img src="~static/nuxt.png">
+    <img src="/nuxt.png">
     <h2>Hello Nuxtron.</h2>
     <p>Loaded from the {{ name }}</p>
     <p>

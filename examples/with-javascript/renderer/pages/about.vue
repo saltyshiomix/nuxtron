@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <img src="~static/nuxt-black.png">
+    <img src="/nuxt-black.png">
     <h2>Thank you for testing Nuxtron</h2>
     <p>Loaded from the {{ name }}</p>
     <p>
-      <NuxtLink to="/home">
+      <NuxtLink to="/">
         Back home
       </NuxtLink>
     </p>
