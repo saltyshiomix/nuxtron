@@ -3,41 +3,24 @@
   "name": "custom-build-options",
   "description": "My application description",
   "version": "1.0.0",
-  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "author": "Shiono Yoshihide <shiono.yoshihide@gmail.com>",
   "main": "app/background.js",
-  "build": {
-    "appId": "com.example.nuxtron",
-    "productName": "My Nuxtron App",
-    "copyright": "Copyright © 2018 Yoshihide Shiono",
-    "directories": {
-      "output": "dist",
-      "buildResources": "resources"
-    },
-    "publish": null
-  },
   "scripts": {
-    "dev": "node build/nuxtron.js",
-    "build": "node build/nuxtron.js build",
-    "build:all": "node build/nuxtron.js build --all",
-    "build:win": "node build/nuxtron.js build --win --ia32",
-    "build:mac": "node build/nuxtron.js build --mac --x64",
-    "build:linux": "node build/nuxtron.js build --linux"
+    "dev": "nuxtron",
+    "build": "nuxtron build",
+    "build:all": "nuxtron build --all",
+    "build:win": "nuxtron build --win --ia32",
+    "build:mac": "nuxtron build --mac --x64",
+    "build:linux": "nuxtron build --linux"
   },
   "dependencies": {
-    "fs-jetpack": "^2.2.2",
-    "nuxt": "2.8.1"
+    "electron-serve": "^0.4.0",
+    "electron-store": "^5.0.0"
   },
   "devDependencies": {
-    "arg": "^4.1.0",
-    "chalk": "^2.4.2",
-    "electron": "5.0.3",
-    "electron-builder": "20.43.0",
-    "fast-glob": "^2.2.6",
-    "friendly-errors-webpack-plugin": "^1.7.0",
-    "fs-extra": "^8.0.1",
-    "node-npx": "^1.3.1",
-    "ora": "^3.4.0",
-    "webpack": "^4.33.0",
-    "webpack-merge": "^4.2.1"
+    "electron": "^6.0.12",
+    "electron-builder": "^21.2.0",
+    "nuxt": "^2.10.1",
+    "nuxtron": "^0.1.31"
   }
 }
