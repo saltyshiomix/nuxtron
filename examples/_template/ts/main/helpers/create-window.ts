@@ -2,6 +2,7 @@ import {
   screen,
   BrowserWindow,
   BrowserWindowConstructorOptions,
+  Rectangle,
 } from 'electron';
 import Store from 'electron-store';
 
@@ -14,7 +15,7 @@ export default (windowName: string, options: BrowserWindowConstructorOptions): B
     height: options.height,
   };
   let state = {};
-  let win;
+  let win: BrowserWindow;
 
   const restore = () => store.get(key, defaultSize);
 
@@ -29,7 +30,7 @@ export default (windowName: string, options: BrowserWindowConstructorOptions): B
     };
   };
 
-  const windowWithinBounds = (windowState, bounds) => {
+  const windowWithinBounds = (windowState: Rectangle, bounds: Rectangle) => {
     return (
       windowState.x >= bounds.x &&
       windowState.y >= bounds.y &&
@@ -46,7 +47,7 @@ export default (windowName: string, options: BrowserWindowConstructorOptions): B
     });
   };
 
-  const ensureVisibleOnSomeDisplay = windowState => {
+  const ensureVisibleOnSomeDisplay = (windowState: Rectangle) => {
     const visible = screen.getAllDisplays().some(display => {
       return windowWithinBounds(windowState, display.bounds);
     });
