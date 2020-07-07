@@ -16,7 +16,7 @@
   "devDependencies": {
     "@nuxt/typescript": "^2.8.1",
     "@types/node": "^12.7.12",
-    "electron": "^6.0.12",
+    "electron": "^9.1.0",
     "electron-builder": "^21.2.0",
     "nuxt": "^2.10.1",
     "nuxtron": "^0.2.1",
