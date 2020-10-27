@@ -4,7 +4,7 @@
     <h2>Thank you for testing Nuxtron</h2>
     <p>Loaded from the {{ name }}</p>
     <p>
-      <NuxtLink to="/">
+      <NuxtLink to="/home">
         Back home
       </NuxtLink>
     </p>
