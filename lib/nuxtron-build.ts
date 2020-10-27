@@ -1,11 +1,11 @@
-#!/usr/bin/env node
-
-const { join } = require('path');
-const { copy, remove } = require('fs-extra');
-const arg = require('arg');
-const chalk = require('chalk');
-const spawn = require('cross-spawn');
-const log = require('./logger');
+import fs from 'fs-extra';
+import path from 'path';
+import { SpawnSyncOptions } from 'child_process';
+import arg from 'arg';
+import chalk from 'chalk';
+import spawn from 'cross-spawn';
+import { getNuxtronConfig } from './webpack/helpers';
+import log from './logger';
 
 const args = arg({
   '--help': Boolean,
@@ -18,11 +18,13 @@ const args = arg({
   '--ia32': Boolean,
   '--armv7l': Boolean,
   '--arm64': Boolean,
+  '--config': String,
   '-h': '--help',
   '-v': '--version',
   '-w': '--win',
   '-m': '--mac',
   '-l': '--linux',
+  '-c': '--config',
 });
 
 if (args['--help']) {
@@ -41,7 +43,7 @@ if (args['--help']) {
       --all          builds for Windows, macOS and Linux
       --win,     -w  builds for Windows, accepts target list (see https://goo.gl/jYsTEJ)
       --mac,     -m  builds for macOS, accepts target list (see https://goo.gl/5uHuzj)
-      --linux,   -l  builds for Linux, accepts target list (see https://goo.gl/4vwQad)
+      --linux,   -l  builds for Linux, accepts target list (see https://goo.gl/4vwQad) 
       --x64          builds for x64
       --ia32         builds for ia32
       --armv7l       builds for armv7l
@@ -51,61 +53,67 @@ if (args['--help']) {
 }
 
 const cwd = process.cwd();
-const spawnOptions = {
+const spawnOptions: SpawnSyncOptions = {
   cwd,
   stdio: 'inherit',
 };
 
-async function build(args) {
+async function build() {
   // Ignore missing dependencies
   process.env.ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES = 'true';
 
+  const rendererSrcDir = getNuxtronConfig().rendererSrcDir || 'renderer';
+
   try {
     log('Clearing previous builds');
-    await remove(join(cwd, 'app'));
-    await remove(join(cwd, 'dist'));
-    await remove(join(cwd, 'renderer', '.nuxt'));
+    fs.removeSync(path.join(cwd, 'app'));
+    fs.removeSync(path.join(cwd, 'dist'));
+    fs.removeSync(path.join(cwd, rendererSrcDir, '.nuxt'));
 
     log('Building renderer process');
-    const outdir = join(cwd, 'renderer/dist');
-    const appdir = join(cwd, 'app');
-    await spawn.sync('nuxt', ['build', join(cwd, 'renderer')], spawnOptions);
-    await spawn.sync('nuxt', ['generate', join(cwd, 'renderer')], spawnOptions);
-    await copy(outdir, appdir);
-    await remove(outdir);
+    const outdir = path.join(cwd, rendererSrcDir, 'dist');
+    const appdir = path.join(cwd, 'app');
+    spawn.sync('nuxt', ['build', path.join(cwd, rendererSrcDir)], spawnOptions);
+    spawn.sync('nuxt', ['generate', path.join(cwd, rendererSrcDir)], spawnOptions);
+    fs.copySync(outdir, appdir);
+    fs.removeSync(outdir);
 
     log('Building main process');
-    await spawn.sync('node', [join(__dirname, 'webpack', 'build.production.js')], spawnOptions);
+    spawn.sync('node', [path.join(__dirname, 'webpack/build.production.js')], spawnOptions);
 
     log('Packaging - please wait a moment');
-    await spawn.sync('electron-builder', createBuilderArgs(args), spawnOptions);
+    spawn.sync('electron-builder', createBuilderArgs(), spawnOptions);
 
     log('See `dist` directory');
   } catch (err) {
     console.log(chalk`
 
-{bold.red Cannot package the electron:}
+{bold.red Cannot build electron packages:}
 {bold.yellow ${err}}
 `);
     process.exit(1);
   }
 }
 
-function createBuilderArgs(args) {
+function createBuilderArgs() {
   let results = [];
+  if (args['--config']) {
+    results.push('--config');
+    results.push(args['--config'] || 'electron-builder.yml');
+  }
   if (args['--all']) {
     results.push('-wml');
-    results.push(...createArchArgs(args));
+    results.push(...createArchArgs());
   } else {
     args['--win'] && results.push('--win');
     args['--mac'] && results.push('--mac');
     args['--linux'] && results.push('--linux');
-    results.push(...createArchArgs(args));
+    results.push(...createArchArgs());
   }
   return results;
 }
 
-function createArchArgs(args) {
+function createArchArgs() {
   let archArgs = [];
   args['--x64'] && archArgs.push('--x64');
   args['--ia32'] && archArgs.push('--ia32');
@@ -114,4 +122,4 @@ function createArchArgs(args) {
   return archArgs;
 }
 
-build(args);
+build();

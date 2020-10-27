@@ -17,4 +17,5 @@ pnpm-lock.yaml
 .DS_Store
 
 # nuxtron dev output
+bin
 workspace

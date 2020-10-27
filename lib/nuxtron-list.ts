@@ -1,9 +1,7 @@
-#!/usr/bin/env node
-
-const { readdirSync } = require('fs');
-const { resolve } = require('path');
-const arg = require('arg');
-const chalk = require('chalk');
+import fs from 'fs';
+import path from 'path';
+import arg from 'arg';
+import chalk from 'chalk';
 
 const args = arg({
   '--help': Boolean,
@@ -13,7 +11,7 @@ const args = arg({
 });
 
 if (args['--version']) {
-  const pkg = require(resolve(__dirname, '../package.json'));
+  const pkg = require(path.resolve(__dirname, '../package.json'));
   console.log(`nuxtron v${pkg.version}`);
   process.exit(0);
 }
@@ -35,11 +33,11 @@ if (args['--help']) {
   process.exit(0);
 }
 
-let names = readdirSync(resolve(__dirname, '../examples'));
+let names = fs.readdirSync(path.resolve(__dirname, '../examples'));
 names = names.filter(name => name.toLowerCase() !== '_template' && name.toLowerCase() !== '.ds_store');
 
 console.log(chalk`
-  {bold.cyan Available examples (${names.length}):}
+  {bold.cyan Available examples (${names.length.toString()}):}
 `);
 
 for (let i = 0; i < names.length; i++) {
@@ -51,7 +49,7 @@ console.log(chalk`
 
     {bold $} {cyan nuxtron init} {underline my-app} [--example {underline example_folder_name}]
 
-  If you want to use "{underline with-javascript}", just type the command below:
+  If you want to use "{underline with-typescript}", just type the command below:
 
-    {bold $} nuxtron init my-app --example {underline with-javascript}
+    {bold $} nuxtron init my-app --example {underline with-typescript}
 `);

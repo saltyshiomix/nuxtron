@@ -1,9 +1,16 @@
-#!/usr/bin/env node
-
-const arg = require('arg');
-const chalk = require('chalk');
-
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+import {
+  ChildProcess,
+  SpawnSyncOptions,
+} from 'child_process';
+import arg from 'arg';
+import chalk from 'chalk';
+import spawn from 'cross-spawn';
+import delay from 'delay';
+import webpack from 'webpack';
+import {
+  getNuxtronConfig,
+  getWebpackConfig,
+} from './webpack/helpers';
 
 const args = arg({
   '--help': Boolean,
@@ -35,40 +42,41 @@ if (args['--help']) {
 
 const rendererPort = args['--port'] || 8888;
 
-const spawnOptions = {
+const spawnOptions: SpawnSyncOptions = {
   cwd: process.cwd(),
   stdio: 'inherit',
 };
 
 async function dev() {
-  const spawn = require('cross-spawn');
-  const delay = require('delay');
-  const webpack = require('webpack');
-  const { getWebpackConfig } = require('./webpack/helpers');
+  const { rendererSrcDir } = getNuxtronConfig();
+
+  let firstCompile = true;
+  let watching: any;
+  let mainProcess: ChildProcess;
+  let rendererProcess: ChildProcess;
+
+  const startMainProcess = () => {
+    mainProcess = spawn('electron', ['.', `${rendererPort}`], {
+      detached: true,
+      ...spawnOptions,
+    });
+    mainProcess.unref();
+  };
 
   const startRendererProcess = () => {
-    let child;
-    if (args['--custom-server']) {
-      const { existsSync } = require('fs');
-      if (existsSync('nodemon.json')) {
-        child = spawn('nodemon', [args['--custom-server']], spawnOptions);
-      } else {
-        child = spawn('node', [args['--custom-server']], spawnOptions);
-      }
-    } else {
-      child = spawn('nuxt', ['-p', rendererPort, 'renderer'], spawnOptions);
-    }
+    const child = spawn('nuxt', ['-p', rendererPort, rendererSrcDir || 'renderer'], spawnOptions);
     child.on('close', () => {
       process.exit(0);
     });
     return child;
   };
 
-  let watching;
-  let rendererProcess;
   const killWholeProcess = () => {
     if (watching) {
-      watching.close();
+      watching.close(() => {});
+    }
+    if (mainProcess) {
+      mainProcess.kill();
     }
     if (rendererProcess) {
       rendererProcess.kill();
@@ -85,14 +93,26 @@ async function dev() {
   await delay(8000);
 
   const compiler = webpack(getWebpackConfig('development'));
-  let isHotReload = false;
-  watching = compiler.watch({}, async (err, stats) => {
-    if (!err && !stats.hasErrors()) {
-      if (isHotReload) {
-        await delay(2000);
+
+  watching = compiler.watch({}, async (err: any) => {
+    if (err) {
+      console.error(err.stack || err);
+      if (err.details) {
+        console.error(err.details);
       }
-      isHotReload = true;
-      await spawn.sync('electron', ['.', rendererPort], spawnOptions);
+    }
+
+    if (firstCompile) {
+      firstCompile = false;
+    }
+
+    if (!err) {
+      if (!firstCompile) {
+        if (mainProcess) {
+          mainProcess.kill();
+        }
+      }
+      startMainProcess();
     }
   });
 }
