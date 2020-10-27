@@ -19,7 +19,7 @@
     "electron": "^10.1.5",
     "electron-builder": "^22.9.1",
     "nuxt": "^2.14.7",
-    "nuxtron": "^0.2.1",
+    "nuxtron": "^0.3.0",
     "typescript": "^3.6.4"
   }
 }
