@@ -1,4 +1,3 @@
-import fs from 'fs';
 import {
   ChildProcess,
   SpawnSyncOptions,
@@ -65,16 +64,7 @@ async function dev() {
   };
 
   const startRendererProcess = () => {
-    let child: ChildProcess;
-    if (args['--custom-server']) {
-      if (fs.existsSync('nodemon.json')) {
-        child = spawn('nodemon', [args['--custom-server']], spawnOptions);
-      } else {
-        child = spawn('node', [args['--custom-server']], spawnOptions);
-      }
-    } else {
-      child = spawn('nuxt', ['-p', rendererPort, rendererSrcDir || 'renderer'], spawnOptions);
-    }
+    const child = spawn('nuxt', ['-p', rendererPort, rendererSrcDir || 'renderer'], spawnOptions);
     child.on('close', () => {
       process.exit(0);
     });
