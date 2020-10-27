@@ -10,15 +10,15 @@
     "build": "nuxtron build"
   },
   "dependencies": {
-    "electron-serve": "^0.4.0",
-    "electron-store": "^5.0.0"
+    "electron-serve": "^1.0.0",
+    "electron-store": "^6.0.1"
   },
   "devDependencies": {
     "@nuxt/typescript": "^2.8.1",
     "@types/node": "^12.7.12",
-    "electron": "^6.0.12",
-    "electron-builder": "^21.2.0",
-    "nuxt": "^2.10.1",
+    "electron": "^10.1.5",
+    "electron-builder": "^22.9.1",
+    "nuxt": "^2.14.7",
     "nuxtron": "^0.2.1",
     "typescript": "^3.6.4"
   }
