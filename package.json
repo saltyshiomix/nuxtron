@@ -35,10 +35,10 @@
     "prepublishOnly": "cross-env NODE_ENV=production npm run build"
   },
   "dependencies": {
-    "@babel/core": "^7.8.3",
-    "@babel/preset-typescript": "^7.8.3",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-typescript": "^7.12.1",
     "arg": "^4.1.2",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.1.0",
     "chalk": "^3.0.0",
     "cross-spawn": "^7.0.1",
     "delay": "^4.3.0",
