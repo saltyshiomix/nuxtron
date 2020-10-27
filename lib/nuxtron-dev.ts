@@ -51,7 +51,7 @@ async function dev() {
   const { rendererSrcDir } = getNuxtronConfig();
 
   let firstCompile = true;
-  let watching: webpack.Watching;
+  let watching: any;
   let mainProcess: ChildProcess;
   let rendererProcess: ChildProcess;
 
@@ -94,7 +94,7 @@ async function dev() {
 
   const compiler = webpack(getWebpackConfig('development'));
 
-  watching = compiler.watch({}, async (err: any, stats: webpack.Stats) => {
+  watching = compiler.watch({}, async (err: any) => {
     if (err) {
       console.error(err.stack || err);
       if (err.details) {
@@ -102,19 +102,11 @@ async function dev() {
       }
     }
 
-    const info = stats.toJson('errors-warnings');
-    if (stats.hasErrors()) {
-      console.error(info.errors);
-    }
-    if (stats.hasWarnings()) {
-      console.warn(info.warnings);
-    }
-
     if (firstCompile) {
       firstCompile = false;
     }
 
-    if (!err && !stats.hasErrors()) {
+    if (!err) {
       if (!firstCompile) {
         if (mainProcess) {
           mainProcess.kill();
