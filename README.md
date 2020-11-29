@@ -4,7 +4,7 @@
   <a href="https://www.npmjs.com/package/nuxtron"><img src="https://img.shields.io/npm/dt/nuxtron.svg"></a>
 </p>
 
-Build an [Electron](https://electronjs.org/) + [Nuxt.js](https://nuxtjs.org/) app for speed ⚡
+Build a [Nuxt.js](https://nuxtjs.org/) + [Electron](https://electronjs.org/) app for speed ⚡
 
 (The screenshot above is a top page of [examples/with-javascript](./examples/with-javascript).)
 
@@ -19,14 +19,6 @@ Build an [Electron](https://electronjs.org/) + [Nuxt.js](https://nuxtjs.org/) ap
 1. Show a way of developing desktop apps only web knowledge
 1. Easy to use
 1. Be transparent and open to OSS developers
-
-## Otherwise Specified
-
-- If you need **more** performance with Electron, you should see these boilerplates
-  - [szwacz/electron-boilerplate](https://github.com/szwacz/electron-boilerplate)
-  - [SimulatedGREG/electron-vue](https://github.com/SimulatedGREG/electron-vue)
-- If you want to use Nuxtron as production, please take responsibility for your actions
-- But, if you have any troubles, questions or ideas, I'll support you, I promise
 
 ## Usage
 
