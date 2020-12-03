@@ -1,39 +1,41 @@
-<template>
-  <div class="container">
-    <img src="/nuxt.png">
+<template lang='html'>
+  <div class='container'>
+    <img src='/nuxt.png'>
     <h2>Hello Nuxtron.</h2>
     <p>Loaded from the {{ name }}</p>
     <p>
-      <NuxtLink to="/about">
-        About
-      </NuxtLink>
+      <NuxtLink to='/about'>About</NuxtLink>
     </p>
   </div>
 </template>
 
-<script>
-export default {
-  asyncData ({ req }) {
-    return {
-      name: process.static ? 'static' : (process.server ? 'server' : 'client'),
-    }
+<script lang='ts'>
+import { Context } from '@nuxt/types/app';
+import Vue from 'vue';
+
+export default Vue.extend({
+  asyncData(context: Context) {
+    const server = process.server ? 'server' : 'client';
+    const name = process.static ? 'static' : server;
+    return { name };
   }
-}
+});
 </script>
 
-<style scoped>
+<style lang='css' scoped>
 .container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
   background: white;
   color: black;
-  font-family: "Lucida Console", Monaco, monospace;
+  font-family: 'Lucida Console', Monaco, monospace;
+  height: 100%;
+  left: 0;
   padding-top: 100px;
+  position: absolute;
   text-align: center;
+  top: 0;
+  width: 100%;
 }
+
 a {
   color: black;
 }

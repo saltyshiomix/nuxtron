@@ -3,7 +3,9 @@ import { getWebpackConfig } from './helpers';
 
 const compiler = webpack(getWebpackConfig('production'));
 
-compiler.run((err: Error, stats: webpack.Stats) => {
-  err && console.error(err.stack || err);
+const callback = (error: Error, stats: webpack.Stats) => {
+  error && console.error(error.stack || error);
   stats.hasErrors() && console.error(stats.toString());
-});
+};
+
+compiler.run(<any>callback);

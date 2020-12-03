@@ -1,16 +1,12 @@
-import {
-  ChildProcess,
-  SpawnSyncOptions,
-} from 'child_process';
 import arg from 'arg';
 import chalk from 'chalk';
+import { ChildProcess, SpawnSyncOptions } from 'child_process';
 import spawn from 'cross-spawn';
 import delay from 'delay';
+import fs from 'fs-extra';
+import path from 'path';
 import webpack from 'webpack';
-import {
-  getNuxtronConfig,
-  getWebpackConfig,
-} from './webpack/helpers';
+import { getNuxtronConfig, getWebpackConfig } from './webpack/helpers';
 
 const args = arg({
   '--help': Boolean,
@@ -20,7 +16,7 @@ const args = arg({
   '-h': '--help',
   '-v': '--version',
   '-p': '--port',
-  '-c': '--custom-server',
+  '-c': '--custom-server'
 });
 
 if (args['--help']) {
@@ -44,10 +40,10 @@ const rendererPort = args['--port'] || 8888;
 
 const spawnOptions: SpawnSyncOptions = {
   cwd: process.cwd(),
-  stdio: 'inherit',
+  stdio: 'inherit'
 };
 
-async function dev() {
+async function development() {
   const { rendererSrcDir } = getNuxtronConfig();
 
   let firstCompile = true;
@@ -56,15 +52,24 @@ async function dev() {
   let rendererProcess: ChildProcess;
 
   const startMainProcess = () => {
-    mainProcess = spawn('electron', ['.', `${rendererPort}`], {
-      detached: true,
-      ...spawnOptions,
+    mainProcess = spawn('electron', [
+      '.',
+      `${rendererPort}`
+    ], {
+      detached: true, ...spawnOptions
+
     });
     mainProcess.unref();
   };
 
   const startRendererProcess = () => {
-    const child = spawn('nuxt', ['-p', rendererPort, rendererSrcDir || 'renderer'], spawnOptions);
+    const cwd = process.cwd();
+    const nuxt = fs.existsSync(path.join(cwd, 'tsconfig.json')) ? 'nuxt-ts' : 'nuxt';
+    const child = spawn(nuxt, [
+      '-p',
+      rendererPort,
+      rendererSrcDir || 'renderer'
+    ], spawnOptions);
     child.on('close', () => {
       process.exit(0);
     });
@@ -73,7 +78,8 @@ async function dev() {
 
   const killWholeProcess = () => {
     if (watching) {
-      watching.close(() => {});
+      watching.close(() => {
+      });
     }
     if (mainProcess) {
       mainProcess.kill();
@@ -117,4 +123,4 @@ async function dev() {
   });
 }
 
-dev();
+(async () => await development())();

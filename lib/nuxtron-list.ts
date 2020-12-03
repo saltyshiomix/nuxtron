@@ -1,13 +1,13 @@
-import fs from 'fs';
-import path from 'path';
 import arg from 'arg';
 import chalk from 'chalk';
+import fs from 'fs';
+import path from 'path';
 
 const args = arg({
   '--help': Boolean,
   '--version': Boolean,
   '-h': '--help',
-  '-v': '--version',
+  '-v': '--version'
 });
 
 if (args['--version']) {
@@ -34,7 +34,7 @@ if (args['--help']) {
 }
 
 let names = fs.readdirSync(path.resolve(__dirname, '../examples'));
-names = names.filter(name => name.toLowerCase() !== '_template' && name.toLowerCase() !== '.ds_store');
+names = names.filter(name => '_template' !== name.toLowerCase() && '.ds_store' !== name.toLowerCase());
 
 console.log(chalk`
   {bold.cyan Available examples (${names.length.toString()}):}
