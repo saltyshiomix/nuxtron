@@ -7,7 +7,8 @@
   "main": "app/background.js",
   "scripts": {
     "dev": "nuxtron",
-    "build": "nuxtron build"
+    "build": "nuxtron build",
+    "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
     "electron-serve": "^1.0.0",
