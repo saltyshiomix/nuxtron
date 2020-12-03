@@ -9,16 +9,25 @@ export default (env: 'development' | 'production'): webpack.Configuration => ({
   target: 'electron-main',
   node: {
     __dirname: false,
-    __filename: false,
+    __filename: false
   },
   externals: [...Object.keys(externals || {})],
   devtool: 'source-map',
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
-    modules: [path.join(cwd, 'app'), 'node_modules'],
+    extensions: [
+      '.js',
+      '.jsx',
+      '.json',
+      '.ts',
+      '.tsx'
+    ],
+    modules: [
+      path.join(cwd, 'app'),
+      'node_modules'
+    ]
   },
   output: {
-    libraryTarget: 'commonjs2',
+    libraryTarget: 'commonjs2'
   },
   module: {
     rules: [
@@ -28,19 +37,19 @@ export default (env: 'development' | 'production'): webpack.Configuration => ({
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
-            presets: ['@babel/preset-typescript'],
-          },
+            presets: ['@babel/preset-typescript']
+          }
         },
         exclude: [
           /node_modules/,
-          path.join(cwd, 'renderer'),
-        ],
-      },
-    ],
+          path.join(cwd, 'renderer')
+        ]
+      }
+    ]
   },
   plugins: [
     new webpack.EnvironmentPlugin({
-      NODE_ENV: env,
-    }),
-  ],
+      NODE_ENV: env
+    })
+  ]
 });

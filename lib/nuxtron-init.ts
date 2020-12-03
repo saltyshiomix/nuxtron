@@ -1,8 +1,8 @@
-import fs from 'fs-extra';
-import path from 'path';
-import { execSync } from 'child_process';
 import arg from 'arg';
 import chalk from 'chalk';
+import { execSync } from 'child_process';
+import fs from 'fs-extra';
+import path from 'path';
 import log from './logger';
 
 const cwd = process.cwd();
@@ -15,7 +15,7 @@ const args = arg({
   '-h': '--help',
   '-v': '--version',
   '-t': '--template',
-  '-e': '--template',
+  '-e': '--template'
 });
 
 if (args['--version']) {
@@ -84,10 +84,10 @@ function init(name: string) {
   const pkg = path.resolve(cwd, `${name}/package.json`);
   const content = fs.readJSONSync(pkg);
   content.name = name;
-  if (process.env.NODE_ENV === 'testing') {
+  if ('testing' === process.env.NODE_ENV) {
     content.devDependencies.nuxtron = cwd;
   }
-  fs.writeJSONSync(pkg, {...content}, {spaces: 2});
+  fs.writeJSONSync(pkg, { ...content }, { spaces: 2 });
 
   let cmd: string;
   const pm = detectPackageManager();

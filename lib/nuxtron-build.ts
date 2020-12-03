@@ -1,11 +1,11 @@
-import fs from 'fs-extra';
-import path from 'path';
-import { SpawnSyncOptions } from 'child_process';
 import arg from 'arg';
 import chalk from 'chalk';
+import { SpawnSyncOptions } from 'child_process';
 import spawn from 'cross-spawn';
-import { getNuxtronConfig } from './webpack/helpers';
+import fs from 'fs-extra';
+import path from 'path';
 import log from './logger';
+import { getNuxtronConfig } from './webpack/helpers';
 
 const args = arg({
   '--help': Boolean,
@@ -24,7 +24,7 @@ const args = arg({
   '-w': '--win',
   '-m': '--mac',
   '-l': '--linux',
-  '-c': '--config',
+  '-c': '--config'
 });
 
 if (args['--help']) {
@@ -53,9 +53,11 @@ if (args['--help']) {
 }
 
 const cwd = process.cwd();
+const nuxt = fs.existsSync(path.join(cwd, 'tsconfig.json')) ? 'nuxt-ts' : 'nuxt';
+
 const spawnOptions: SpawnSyncOptions = {
   cwd,
-  stdio: 'inherit',
+  stdio: 'inherit'
 };
 
 async function build() {
@@ -73,8 +75,14 @@ async function build() {
     log('Building renderer process');
     const outdir = path.join(cwd, rendererSrcDir, 'dist');
     const appdir = path.join(cwd, 'app');
-    spawn.sync('nuxt', ['build', path.join(cwd, rendererSrcDir)], spawnOptions);
-    spawn.sync('nuxt', ['generate', path.join(cwd, rendererSrcDir)], spawnOptions);
+    spawn.sync(nuxt, [
+      'build',
+      path.join(cwd, rendererSrcDir)
+    ], spawnOptions);
+    spawn.sync(nuxt, [
+      'generate',
+      path.join(cwd, rendererSrcDir)
+    ], spawnOptions);
     fs.copySync(outdir, appdir);
     fs.removeSync(outdir);
 
@@ -85,11 +93,11 @@ async function build() {
     spawn.sync('electron-builder', createBuilderArgs(), spawnOptions);
 
     log('See `dist` directory');
-  } catch (err) {
+  } catch (error) {
     console.log(chalk`
 
 {bold.red Cannot build electron packages:}
-{bold.yellow ${err}}
+{bold.yellow ${error}}
 `);
     process.exit(1);
   }
@@ -122,4 +130,4 @@ function createArchArgs() {
   return archArgs;
 }
 
-build();
+(async () => await build())();

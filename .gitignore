@@ -19,3 +19,7 @@ pnpm-lock.yaml
 # nuxtron dev output
 bin
 workspace
+
+# ide
+.vscode/
+.idea/
